@@ -1,0 +1,148 @@
+[
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.1-awscli/",
+	"title": "Cài đặt và cấu hình AWS CLI",
+	"tags": [],
+	"description": "",
+	"content": "\rPython đã được cài đặt (phiên bản 3.7 trở lên) để cài đặt AWS CLI phiên bản 2.x. Đây là hướng dẫn cài đặt trên Windows.\n1. Cài đặt Tải AWS CLI: Truy cập Trình cài đặt AWS CLI MSI cho Windows Chạy trình cài đặt MSI Để xác nhận cài đặt, mở menu Start, tìm kiếm cmd để mở cửa sổ Command Prompt, và tại Command Prompt sử dụng lệnh aws --version. 2. Cấu hình Chạy lệnh: aws configure Nhập các thông tin sau:\nAWS Access Key ID: Lấy từ AWS IAM Đăng nhập vào AWS Management Console: Truy cập https://aws.amazon.com/console/. Đăng nhập bằng thông tin xác thực tài khoản AWS. Truy cập IAM: Trong AWS Management Console, tìm kiếm IAM. Chọn IAM từ danh sách dịch vụ để mở bảng điều khiển IAM. Chọn một IAM user: Trong menu bảng điều khiển, nhấp vào Users. Nhấp vào IAM user. 4. Tạo Access Key:\nNhấp vào tab Security credentials. Nhấp vào Create access key. Chọn Command Line Interface (CLI). Thêm thẻ mô tả tùy chọn cho khóa (ví dụ: workshop-key). Nhấp vào Create access key. Trên màn hình tiếp theo, bạn sẽ thấy: Access Key ID. Secret Access Key. Tải xuống tệp .csv chứa thông tin xác thực hoặc sao chép chúng vào một nơi an toàn. Secret Access Key chỉ được hiển thị một lần và không thể lấy lại sau đó.\nAWS Secret Access Key: Nhập từ tệp CSV. Default region name: Ví dụ: us-east-1. Default output format: Nhập json hoặc nhấn Enter để sử dụng mặc định. Cấu hình được lưu trong: %USERPROFILE%\\.aws\\credentials và %USERPROFILE%\\.aws\\config\nKiểm tra cấu hình bằng cách chạy:\naws sts get-caller-identity Tài liệu bổ sung Tài liệu AWS IAM: https://docs.aws.amazon.com/iam/ Hướng dẫn cấu hình AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html "
+},
+{
+	"uri": "//localhost:1313/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu Workshop này hướng dẫn người tham gia triển khai quản lý đa cụm Kubernetes bằng Cluster API trên AWS. Cluster API là một dự án Kubernetes cung cấp các API khai báo để quản lý vòng đời cụm, cho phép tự động hóa việc cung cấp, nâng cấp và mở rộng cụm.\nMục tiêu Tự động hóa vòng đời cụm Kubernetes (tạo, mở rộng, nâng cấp và xóa). Thiết lập mạng liên cụm để giao tiếp liền mạch. Phân phối khối lượng công việc giữa các cụm để đảm bảo tính sẵn sàng cao và khả năng mở rộng. Áp dụng các chính sách quản trị và bảo mật để đảm bảo tuân thủ và vận hành an toàn. Áp dụng chiến lược quản lý chi phí để tối ưu hóa việc sử dụng tài nguyên AWS. Xác định quy trình vận hành cho quản lý đa cụm. Workshop sử dụng AWS EKS (Elastic Kubernetes Service) với Cluster API để quản lý nhiều cụm, tập trung vào triển khai thực hành. Sau ưorkshop, người tham gia sẽ có một hệ thống đa cụm hoạt động với quản lý vòng đời tự động, mạng an toàn và vận hành tối ưu chi phí.\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.1-kubectl/",
+	"title": "Kubectl (CLI cho Kubernet)",
+	"tags": [],
+	"description": "",
+	"content": "Kubernetes cung cấp một công cụ dòng lệnh để giao tiếp với mặt điều khiển của cụm Kubernetes, sử dụng API của Kubernetes. Công cụ này được đặt tên là Kubectl\nCài đặt Tải Download Binary Di chuyển đến một thư mục: Di chuyển kubectl.exe đến một thư mục như C:\\Program Files\\kubectl hoặc một thư mục khác Thêm đường dẫn thư mục vào system environment variable sử dụng kubectl từ bất cứ đâu Kiểm tra cài đặt kubectl version --client "
+},
+{
+	"uri": "//localhost:1313/vi/",
+	"title": "Kubernetes Multi-Cluster Management với Cluster API",
+	"tags": [],
+	"description": "",
+	"content": "Kubernetes Multi-Cluster Management với Cluster API Tổng quan Workshop này hướng dẫn người tham gia triển khai quản lý đa cụm Kubernetes bằng Cluster API trên AWS. Cluster API là một dự án Kubernetes cung cấp các API khai báo để quản lý vòng đời cụm, cho phép tự động hóa việc cung cấp, nâng cấp và mở rộng cụm.\nMục tiêu Tự động hóa vòng đời cụm Kubernetes (tạo, mở rộng, nâng cấp và xóa). Thiết lập mạng liên cụm để giao tiếp liền mạch. Phân phối khối lượng công việc giữa các cụm để đảm bảo tính sẵn sàng cao và khả năng mở rộng. Áp dụng các chính sách quản trị và bảo mật để đảm bảo tuân thủ và vận hành an toàn. Áp dụng chiến lược quản lý chi phí để tối ưu hóa việc sử dụng tài nguyên AWS. Xác định quy trình vận hành cho quản lý đa cụm. Workshop sử dụng AWS EKS (Elastic Kubernetes Service) với Cluster API để quản lý nhiều cụm, tập trung vào triển khai thực hành. Sau ưorkshop, người tham gia sẽ có một hệ thống đa cụm hoạt động với quản lý vòng đời tự động, mạng an toàn và vận hành tối ưu chi phí.\nNội dung Giới thiệu Các bước chuẩn bị Khởi tạo cluster quản lý Cluster API Tạo Workload Clusters Thiết lập Cross-Cluster Networking Phân phối Workload Triển khai quản trị và bảo mật Quản lý chi phí Quy trình vận hành Dọn dẹp tài nguyên "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/",
+	"title": "Các bước chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "\rBạn cần thiết lập các công cụ và môi trường AWS cần thiết để thực hiện bài thực hành này.\nNội dung Cài đặt và cấu hình AWS CLI Cài đặt các công cụ Tạo EC2 Keypair Tạo S3 Bucket "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.2-tools/",
+	"title": "Cài đặt công cụ",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung Kubectl (CLI cho Kubernet) Eksctl (CLI cho Amazon EKS) Clusterctl (CLI cho Cluster API) Tài liệu bổ sung kubectl eksctl clusterctl AWS EKS "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.2-eksctl/",
+	"title": "Eksctl (CLI cho Amazon EKS)",
+	"tags": [],
+	"description": "",
+	"content": "eksctl là một công cụ dòng lệnh dùng để tạo và quản lý các cụm Kubernetes trên Amazon EKS. Công cụ này đơn giản hóa các tác vụ quản lý cụm bằng cách sử dụng API của AWS.\nCài đặt Tải xuống file nhị phân\nTruy cập trang phát hành eksctl. Tải phiên bản mới nhất cho Windows (eksctl_Windows_amd64.zip cho 64-bit). Giải nén file ZIP để lấy file eksctl.exe. Di chuyển đến thư mục PATH\nDi chuyển file eksctl.exe đến một thư mục có trong biến PATH của hệ thống như C:\\Program Files\\eksctl. Nếu cần, tạo thư mục mới này. Thêm vào biến môi trường PATH\nMở Edit the system environment variables trên Windows. Trong System Variables, tìm và chỉnh sửa biến Path. Thêm đường dẫn đến thư mục chứa eksctl.exe (C:\\Program Files\\eksctl). Lưu thay đổi. Kiểm tra cài đặt Chạy lệnh sau trong Command Prompt hoặc PowerShell:\neksctl version "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.3-clusterctl/",
+	"title": "Clusterctl (CLI cho Cluster API)",
+	"tags": [],
+	"description": "",
+	"content": "clusterctl là một công cụ dòng lệnh dùng để quản lý các cụm Kubernetes thông qua Cluster API. Công cụ này đơn giản hóa việc tạo, nâng cấp và xóa các cụm bằng cách tương tác với các nhà cung cấp Cluster API.\nCài đặt Cài đặt file nhị phân clusterctl bằng curl trên Windows sử dụng PowerShell\nChuyển đến thư mục làm việc nơi bạn muốn tải clusterctl. Tải phiên bản mới nhất; trên Windows, gõ: curl.exe -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.10.4/clusterctl-windows-amd64.exe -o clusterctl.exe Thêm vào biến môi trường PATH\nMở Edit the system environment variables trên Windows. Trong System Variables, tìm và chỉnh sửa biến Path. Thêm đường dẫn đến thư mục chứa clusterctl.exe (ví dụ: C:\\Program Files\\clusterctl). Lưu thay đổi. Xác minh cài đặt Kiểm tra để đảm bảo phiên bản bạn đã cài đặt là mới nhất:\nclusterctl version "
+},
+{
+	"uri": "//localhost:1313/vi/3-iniclusters/",
+	"title": "Khởi tạo Cluster API quản lý cluster",
+	"tags": [],
+	"description": "",
+	"content": "1. Triển khai Cụm Quản lý Cụm quản lý là một cụm EKS chứa các thành phần Cluster API để quản lý các cụm workload.\nThiết lập môi trường cho PowerShell:\n$Env:AWS_ACCESS_KEY_ID = \u0026#34;\u0026lt;access-key\u0026gt;\u0026#34;\r$Env:AWS_SECRET_ACCESS_KEY = \u0026#34;\u0026lt;secret-key\u0026gt;\u0026#34;\r$credentials = \u0026#34;[default]`naws_access_key_id = $Env:AWS_ACCESS_KEY_ID`naws_secret_access_key = $Env:AWS_SECRET_ACCESS_KEY`n\u0026#34;\r$Env:AWS_B64ENCODED_CREDENTIALS = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($credentials))\r$Env:AWS_REGION = \u0026#34;us-east-1\u0026#34;\r$Env:CLUSTER_API_STATE_BUCKET = \u0026#34;capi-workshop-state\u0026#34; Tạo cụm quản lý với eksctl:\neksctl create cluster --name management-cluster --region us-east-1 --version 1.33 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed Nếu gặp lỗi timeout trong quá trình tạo cụm, thử chuyển sang DNS công cộng:\nMở Control Panel → Network and Sharing Center → Change adapter settings. Nhấp chuột phải vào kết nối đang hoạt động (Wi-Fi/Ethernet) → Properties. Chọn Internet Protocol Version 4 (TCP/IPv4) → Properties. Thiết lập: Preferred DNS: 8.8.8.8 (Google) Alternate DNS: 8.8.4.4 (Google) hoặc 1.1.1.1 (Cloudflare) Bạn cũng có thể thử tắt tạm thời Windows Firewall nếu thay đổi DNS không khắc phục được vấn đề.\nLệnh này có thể mất 10-15 phút để hoàn thành.\nSau khi tạo thành công\nKiểm tra với EKS và CloudFormation\nCập nhật ngữ cảnh kubectl: Sau khi cụm được tạo, cập nhật tệp kubeconfig để cho phép kubectl tương tác với cụm:\naws eks update-kubeconfig --name management-cluster --region us-east-1 2. Khởi tạo Cluster API Cluster API là một dự án Kubernetes cung cấp các API khai báo để quản lý vòng đời cụm. Ở đây, chúng ta khởi tạo Cluster API với nhà cung cấp AWS.\nKhởi tạo Cluster API với nhà cung cấp AWS: clusterctl init --infrastructure aws 3. Kiểm tra Khởi tạo Kiểm tra xem các thành phần Cluster API và nhà cung cấp AWS đã được triển khai đúng chưa.\nKiểm tra pods trong namespace capi-system: Kiểm tra pods trong namespace capi-system and capa-system: kubectl get pods -n capi-system kubectl get pods -n capa-system "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.3-creec2keypair/",
+	"title": "Tạo EC2 Keypair",
+	"tags": [],
+	"description": "",
+	"content": " Tạo SSH key pair: Chạy lệnh sau để tạo SSH key pair có tên workshop-key trong vùng us-east-1:\naws ec2 create-key-pair --key-name workshop-key --query \u0026#39;KeyMaterial\u0026#39; --output text \u0026gt; workshop-key.pem Xác minh key pair trong AWS Console:\nĐăng nhập vào AWS Management Console. Điều hướng đến EC2 → Key Pairs. Tìm key pair workshop-key trong vùng us-east-1. "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/",
+	"title": "Clusterctl (CLI cho Cluster API)",
+	"tags": [],
+	"description": "",
+	"content": "clusterctl là một công cụ dòng lệnh dùng để quản lý các cụm Kubernetes thông qua Cluster API. Công cụ này đơn giản hóa việc tạo, nâng cấp và xóa các cụm bằng cách tương tác với các nhà cung cấp Cluster API.\nCài đặt Cài đặt file nhị phân clusterctl bằng curl trên Windows sử dụng PowerShell\nChuyển đến thư mục làm việc nơi bạn muốn tải clusterctl. Tải phiên bản mới nhất; trên Windows, gõ: curl.exe -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.10.4/clusterctl-windows-amd64.exe -o clusterctl.exe Thêm vào biến môi trường PATH\nMở Edit the system environment variables trên Windows. Trong System Variables, tìm và chỉnh sửa biến Path. Thêm đường dẫn đến thư mục chứa clusterctl.exe (ví dụ: C:\\Program Files\\clusterctl). Lưu thay đổi. Xác minh cài đặt Kiểm tra để đảm bảo phiên bản bạn đã cài đặt là mới nhất:\nclusterctl version "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.4-cres3/",
+	"title": "Tạo S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "Create an S3 Bucket for Cluster API State:\nTạo một S3 bucket để lưu Cluster API state: aws s3 mb s3://capi-workshop-state --region us-east-1 Kiểm tra: aws s3 ls s3://capi-workshop-state Tên bucket phải là duy nhất. Nếu capi-workshop-state đã tồn tại, hãy thêm tiền tố.\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-creclusters/",
+	"title": "Tạo Workload Clusters",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/5-networking/",
+	"title": "Thiết lập Cross-Cluster Networking",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/6-distribution/",
+	"title": "Phân phối Workload",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/7-security/",
+	"title": "Triển khai quản trị và bảo mật",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/8-cost/",
+	"title": "Quản lý chi phí",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/9-procedures/",
+	"title": "Quy trình vận hành",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/10-cleanup/",
+	"title": "Dọn dẹp tài nguyên  ",
+	"tags": [],
+	"description": "",
+	"content": "Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng ta đã tạo trong bài thực hành này.\nXóa EC2 instance Truy cập giao diện quản trị dịch vụ EC2 Click Instances. Click chọn cả 2 instance Public Linux Instance và Private Windows Instance. Click Instance state. Click Terminate instance, sau đó click Terminate để xác nhận. Truy cập giao diện quản trị dịch vụ IAM Click Roles. Tại ô tìm kiếm , điền SSM. Click chọn SSM-Role. Click Delete, sau đó điền tên role SSM-Role và click Delete để xóa role. Click Users. Click chọn user Portfwd. Click Delete, sau đó điền tên user Portfwd và click Delete để xóa user. Xóa S3 bucket Truy cập giao diện quản trị dịch vụ System Manager - Session Manager. Click tab Preferences. Click Edit. Kéo chuột xuống dưới. Tại mục S3 logging. Bỏ chọn Enable để tắt tính năng logging. Kéo chuột xuống dưới. Click Save. Truy cập giao diện quản trị dịch vụ S3 Click chọn S3 bucket chúng ta đã tạo cho bài thực hành. ( Ví dụ : lab-fcj-bucket-0001 ) Click Empty. Điền permanently delete, sau đó click Empty để tiến hành xóa object trong bucket. Click Exit. Sau khi xóa hết object trong bucket, click Delete Điền tên S3 bucket, sau đó click Delete bucket để tiến hành xóa S3 bucket. Xóa các VPC Endpoint Truy cập vào giao diện quản trị dịch vụ VPC Click Endpoints. Chọn 4 endpoints chúng ta đã tạo cho bài thực hành bao gồm SSM, SSMMESSAGES, EC2MESSAGES, S3GW. Click Actions. Click Delete VPC endpoints. Tại ô confirm , điền delete. Click Delete để tiến hành xóa các endpoints. Click biểu tượng refresh, kiểm tra tất cả các endpoints đã bị xóa trước khi làm bước tiếp theo. Xóa VPC Truy cập vào giao diện quản trị dịch vụ VPC Click Your VPCs. Click chọn Lab VPC. Click Actions. Click Delete VPC. Tại ô confirm, điền delete để xác nhận, click Delete để thực hiện xóa Lab VPC và các tài nguyên liên quan. "
+},
+{
+	"uri": "//localhost:1313/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

@@ -1,0 +1,148 @@
+[
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-awscli/",
+	"title": "Install and configure AWS CLI",
+	"tags": [],
+	"description": "",
+	"content": "\rPython installed (version 3.7 or more) to install for AWS Cli version 2.x. This is an installation guide on Windows\n1. Install Download AWS CLI: Go to AWS CLI MSI installer for Windows Running the MSI installer To confirm the installation, open the Start menu, search for cmd to open a command prompt window, and at the command prompt use the aws --version command. 2. Configuration Run configuration command: aws configure Enter the following:\nAWS Access Key ID: Obtain from AWS IAM Sign in to the AWS Management Console: Navigate to https://aws.amazon.com/console/. Log in with your AWS account credentials. Navigate to IAM: In the AWS Management Console, search for IAM. Select IAM from the services list to open the IAM dashboard. 3. Select an IAM User:\nIn the dashboard menu, click Users. Click on the IAM user. 4. Create Access Key:\nClick the Security credentials tab. Click Create access key. Select the use case (e.g., Command Line Interface (CLI)). Add an optional description tag for the key (e.g., workshop-key). Click Create access key. On the next screen, you’ll see: Access Key ID. Secret Access Key. Download the .csv file containing these credentials or copy them to a secure location. The Secret Access Key is only shown once and cannot be retrieved later.\nAWS Secret Access Key: Import from CSV file. Default region name: E.g., us-east-1. Default output format: Enter json or press Enter to use the default. The configuration is saved in: %USERPROFILE%\\.aws\\credentials and %USERPROFILE%\\.aws\\config\nTest the configuration by running:\naws sts get-caller-identity Additional Resources AWS IAM Documentation: https://docs.aws.amazon.com/iam/ AWS CLI Configuration Guide: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html "
+},
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Overview This workshop guides participants through implementing multi-cluster Kubernetes management using Cluster API on AWS. Cluster API is a Kubernetes project that provides declarative APIs for cluster lifecycle management, enabling automation of cluster provisioning, upgrades, and scaling across multiple clusters.\nObjective Automate Kubernetes cluster lifecycle (creation, scaling, upgrades, and deletion). Set up cross-cluster networking for seamless communication. Distribute workloads across clusters for high availability and scalability. Implement governance and security policies to ensure compliance and secure operations. Apply cost management strategies to optimize AWS resource usage. Define operational procedures for multi-cluster management. The workshop uses AWS EKS (Elastic Kubernetes Service) with Cluster API to manage multiple clusters, focusing on practical, hands-on implementation. By the end, participants will have a functional multi-cluster setup with automated lifecycle management, secure networking, and cost-optimized operations.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-tools/2.2.1-kubectl/",
+	"title": "Kubectl (CLI for Kubernet)",
+	"tags": [],
+	"description": "",
+	"content": "Kubernetes provides a command line tool for communicating with a Kubernetes cluster\u0026rsquo;s control plane, using the Kubernetes API. This tool is named kubectl\nInstall Go to Download Binary Move to a PATH directory: Move kubectl.exe to a directory like C:\\Program Files\\kubectl or another directory in PATH Add new PATH in Edit environment variable to use kubectl from anywhere Verify installation kubectl version --client "
+},
+{
+	"uri": "//localhost:1313/",
+	"title": "Kubernetes Multi-Cluster Management with Cluster API",
+	"tags": [],
+	"description": "",
+	"content": "Kubernetes Multi-Cluster Management with Cluster API Overall This workshop guides participants through implementing multi-cluster Kubernetes management using Cluster API on AWS. Cluster API is a Kubernetes project that provides declarative APIs for cluster lifecycle management, enabling automation of cluster provisioning, upgrades, and scaling across multiple clusters. Participants will learn to:\nObjective Automate Kubernetes cluster lifecycle (creation, scaling, upgrades, and deletion). Set up cross-cluster networking for seamless communication. Distribute workloads across clusters for high availability and scalability. Implement governance and security policies to ensure compliance and secure operations. Apply cost management strategies to optimize AWS resource usage. Define operational procedures for multi-cluster management. The workshop uses AWS EKS (Elastic Kubernetes Service) with Cluster API to manage multiple clusters, focusing on practical, hands-on implementation. By the end, participants will have a functional multi-cluster setup with automated lifecycle management, secure networking, and cost-optimized operations.\nContent Introduction Preparation Initialize Cluster API Management Cluster Create Workload Clusters Set Up Cross-Cluster Networking Workload Distribution Implement Governance and Security Cost Management Operational Procedures Clean up resources "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-tools/2.2.2-eksctl/",
+	"title": "Eksctl (CLI for Amazon EKS)",
+	"tags": [],
+	"description": "",
+	"content": "eksctl is a command-line tool for creating and managing Kubernetes clusters on Amazon EKS. It simplifies cluster management tasks using the AWS API.\nInstall Download the Binary\nGo to eksctl Releases. Download the latest version for Windows (eksctl_Windows_amd64.zip for 64-bit). Extract the ZIP file to obtain eksctl.exe. Move to a PATH Directory\nMove eksctl.exe to a directory included in your system\u0026rsquo;s PATH, such as C:\\Program Files\\eksctl. Create the directory if it does not exist. Add to PATH Environment Variable\nOpen Edit the system environment variables on Windows. In System Variables, find and edit the Path variable. Add the directory containing eksctl.exe (C:\\Program Files\\eksctl). Save changes. Verify installation Run the following command in Command Prompt or PowerShell:\neksctl version "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-tools/",
+	"title": "Install tools",
+	"tags": [],
+	"description": "",
+	"content": "Content Kubectl (CLI for Kubernet) Eksctl (CLI for Amazon EKS) Clusterctl (CLI for Cluster API) Additional Resources kubectl eksctl clusterctl AWS EKS "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/",
+	"title": "Preparation ",
+	"tags": [],
+	"description": "",
+	"content": "\rYou need to set up the required tools and AWS environment to perform this lab.\nContent Install and configure AWS CLI Install tools Create EC2 Keypair Create S3 Bucket "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-tools/2.2.3-clusterctl/",
+	"title": "Clusterctl (CLI for Cluster API)",
+	"tags": [],
+	"description": "",
+	"content": "clusterctl is a command-line tool for managing Kubernetes clusters using the Cluster API. It simplifies the creation, upgrade, and deletion of clusters by interacting with Cluster API providers.\nInstall Install clusterctl binary with curl on Windows using PowerShell Go to the working directory where you want clusterctl downloaded. Download the latest release; on Windows, type: curl.exe -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.10.4/clusterctl-windows-amd64.exe -o clusterctl.exe 2. Add to PATH Environment Variable\nOpen Edit the system environment variables on Windows. In System Variables, find and edit the Path variable. Add the directory containing clusterctl.exe (C:\\Program Files\\clusterctl). Save changes. Verify Installation Test to ensure the version you installed is up-to-date:\nclusterctl version "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.3-creec2keypair/",
+	"title": "Create EC2 Keypair",
+	"tags": [],
+	"description": "",
+	"content": " Create the SSH key pair: Run the following command to create an SSH key pair named workshop-key in the us-east-1 region:\naws ec2 create-key-pair --key-name workshop-key --query \u0026#39;KeyMaterial\u0026#39; --output text \u0026gt; workshop-key.pem Verify the key pair in AWS Console:\nSign in to the AWS Management Console. Navigate to EC2 → Key Pairs. Look for the workshop-key in the us-east-1 region. "
+},
+{
+	"uri": "//localhost:1313/3-iniclusters/",
+	"title": "Initialize Cluster API Management Cluster",
+	"tags": [],
+	"description": "",
+	"content": "1. Deploy Management Cluster Create AWS Identity and Access Management (IAM) roles for use with Kubernetes Cluster API Provider AWS.\nclusterawsadm bootstrap iam create-cloudformation-stack --region us-east-1 The management cluster is an EKS cluster hosting Cluster API components to manage workload clusters.\nCreate the management cluster with eksctl:\neksctl create cluster --name management-cluster --region us-east-1 --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed If you encounter a timeout error during cluster creation, try switching to public DNS:\nOpen Control Panel → Network and Sharing Center → Change adapter settings. Right-click your active connection (Wi-Fi/Ethernet) → Properties. Select Internet Protocol Version 4 (TCP/IPv4) → Properties. Set: Preferred DNS: 8.8.8.8 (Google) Alternate DNS: 8.8.4.4 (Google) or 1.1.1.1 (Cloudflare) You may also try turning off Windows Firewall temporarily if DNS changes don’t resolve the issue.\nThis command may take 10-15 minutes to complete.\nAfter successful creation\nVerify witk EKS and CloudFormation\nConfigure kubectl:\nAfter cluster creation, configure kubectl to connect to your cluster:\naws eks update-kubeconfig --name management-cluster --region us-east-1 Verify Cluster\nTest your cluster connection:\n# Check cluster nodes\rkubectl get nodes\r# Check system pods\rkubectl get pods --all-namespaces\r# Get cluster information\rkubectl cluster-info 2. Initialize Cluster API Cluster API is a Kubernetes project providing declarative APIs for cluster lifecycle management. Here, we initialize Cluster API with the AWS provider.\nEncode credentials for use with clusterctl init\n$env:AWS_REGION = \u0026#34;us-east-1\u0026#34;\r$env:AWS_B64ENCODED_CREDENTIALS = clusterawsadm bootstrap credentials encode-as-profile Initialize Cluster API with AWS provider:\nclusterctl init --infrastructure aws 3. Verify Initialization Check pods in capi-system and capa-system namespace: # Check core Cluster API components\rkubectl get pods -n capi-system\r# Check AWS provider components\rkubectl get pods -n capa-system\r# Verify CRDs are installed\rkubectl get crd | findstr cluster-api "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/",
+	"title": "Clusterctl (CLI for Cluster API)",
+	"tags": [],
+	"description": "",
+	"content": "clusterawsadm provides helpers for bootstrapping Kubernetes Cluster API Provider AWS. Use clusterawsadm to view required AWS Identity and Access Management (IAM) policies as JSON docs, or create IAM roles and instance profiles automatically using AWS CloudFormation.\nclusterawsadm additionally helps provide credentials for use with clusterctl.\nInstall Install clusterawsadm on Windows using PowerShell Go to the working directory where you want clusterctl downloaded. Download the latest release; on Windows, type: curl.exe -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.10.4/clusterctl-windows-amd64.exe -o clusterctl.exe\r$release = Invoke-RestMethod -Uri \u0026#34;https://api.github.com/repos/kubernetes-sigs/cluster-api-provider-aws/releases/latest\u0026#34;\r$downloadUrl = $release.assets | Where-Object { $_.name -eq \u0026#34;clusterawsadm-windows-amd64.exe\u0026#34; } | Select-Object -ExpandProperty browser_download_url\r$outputPath = \u0026#34;$env:USERPROFILE\\Downloads\\clusterawsadm.exe\u0026#34;\rInvoke-WebRequest -Uri $downloadUrl -OutFile $outputPath Add to PATH Environment Variable Open Edit the system environment variables on Windows. In System Variables, find and edit the Path variable. Add the directory containing clusterawsadm.exe (C:\\Program Files\\clusterawsadm). Save changes. Verify Installation Test to ensure the version you installed is up-to-date:\nclusterawsadm version "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.4-cres3/",
+	"title": "Create S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "Create an S3 Bucket for Cluster API State:\nCreate an S3 bucket to store Cluster API state: aws s3 mb s3://capi-workshop-state --region us-east-1 Verify: aws s3 ls s3://capi-workshop-state The bucket name must be globally unique. If capi-workshop-state is taken, append a unique suffix.\n"
+},
+{
+	"uri": "//localhost:1313/4-creclusters/",
+	"title": "Create Workload Clusters",
+	"tags": [],
+	"description": "",
+	"content": "Workload clusters are managed by the management cluster using Cluster API.\nCreate ClusterClass Definition: Create a file called cluster-class.yaml:\napiVersion: cluster.x-k8s.io/v1beta1\rkind: ClusterClass\rmetadata:\rname: aws-eks-clusterclass\rnamespace: default\rspec:\rcontrolPlane:\rref:\rapiVersion: controlplane.cluster.x-k8s.io/v1beta2\rkind: AWSManagedControlPlaneTemplate\rname: aws-eks-control-plane-template\rmachineInfrastructure:\rref:\rapiVersion: infrastructure.cluster.x-k8s.io/v1beta2\rkind: AWSManagedControlPlaneTemplate\rname: aws-eks-control-plane-template\rinfrastructure:\rref:\rapiVersion: infrastructure.cluster.x-k8s.io/v1beta2\rkind: AWSClusterTemplate\rname: aws-cluster-template\rworkers:\rmachineDeployments:\r- class: default-worker\rtemplate:\rbootstrap:\rref:\rapiVersion: bootstrap.cluster.x-k8s.io/v1beta2\rkind: EKSConfigTemplate\rname: aws-eks-bootstrap-template\rinfrastructure:\rref:\rapiVersion: infrastructure.cluster.x-k8s.io/v1beta2\rkind: AWSMachineTemplate\rname: aws-machine-template\r---\rapiVersion: controlplane.cluster.x-k8s.io/v1beta2\rkind: AWSManagedControlPlaneTemplate\rmetadata:\rname: aws-eks-control-plane-template\rnamespace: default\rspec:\rtemplate:\rspec:\rregion: us-east-1\rversion: \u0026#34;1.32\u0026#34;\reksClusterName: \u0026#34;{{.cluster.name}}\u0026#34;\rendpointAccess:\rpublic: true\rprivate: false\r---\rapiVersion: infrastructure.cluster.x-k8s.io/v1beta2\rkind: AWSClusterTemplate\rmetadata:\rname: aws-cluster-template\rnamespace: default\rspec:\rtemplate:\rspec:\rregion: us-east-1\rsshKeyName: \u0026#34;default\u0026#34;\r---\rapiVersion: infrastructure.cluster.x-k8s.io/v1beta2\rkind: AWSMachineTemplate\rmetadata:\rname: aws-machine-template\rnamespace: default\rspec:\rtemplate:\rspec:\rinstanceType: t3.medium\riamInstanceProfile: \u0026#34;nodes.cluster-api-provider-aws.sigs.k8s.io\u0026#34;\rsshKeyName: \u0026#34;default\u0026#34;\r---\rapiVersion: bootstrap.cluster.x-k8s.io/v1beta2\rkind: EKSConfigTemplate\rmetadata:\rname: aws-eks-bootstrap-template\rnamespace: default\rspec:\rtemplate:\rspec: {} Apply ClusterClass:\nkubectl apply -f cluster-class.yaml Generate and Deploy Workload Cluster:\nGenerate Cluster Configuration:\n$CLUSTER_NAME=workload-cluster-1\r$KUBERNETES_VERSION=v1.28.0\r$AWS_CONTROL_PLANE_MACHINE_TYPE=t3.medium\r$AWS_NODE_MACHINE_TYPE=t3.medium\rclusterctl generate cluster ${CLUSTER_NAME} --kubernetes-version ${KUBERNETES_VERSION} --control-plane-machine-count=1 --worker-machine-count=3 \u0026gt; ${CLUSTER_NAME}.yaml Deploy Workload Cluster:\nkubectl apply -f ${CLUSTER_NAME}.yaml\rkubectl get cluster\rkubectl get awscluster\rkubectl get awsmanagedcontrolplane Deploy Workload Cluster:\nkubectl get clusters\rclusterctl describe cluster capa-workload-cluster Access Workload Cluster:\nRetrieve kubeconfig for the workload cluster: clusterctl get kubeconfig workload-cluster-1 \u0026gt; workload-cluster-1.kubeconfig Test access: kubectl --kubeconfig=workload-cluster-1.kubeconfig get nodes Repeat for Additional Clusters:\nGenerate and apply manifests for workload-cluster-2 in a different AWS region (e.g., us-east-1) for multi-region setup. "
+},
+{
+	"uri": "//localhost:1313/5-networking/",
+	"title": "Set Up Cross-Cluster Networking",
+	"tags": [],
+	"description": "",
+	"content": "Enable communication between clusters using AWS VPC peering or a service mesh like Istio.\nCreate VPC Peering:\nCreate a peering connection between the management cluster and workload clusters: aws ec2 create-vpc-peering-connection --vpc-id \u0026lt;management-vpc-id\u0026gt; --peer-vpc-id \u0026lt;workload-vpc-id\u0026gt; --region us-east-1 Accept the peering connection: aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id \u0026lt;peering-id\u0026gt; --region us-east-1 Update route tables to allow traffic between VPCs. Install Istio for Service Mesh:\nInstall Istio on the management cluster: istioctl install --set profile=demo -y Deploy Istio on workload clusters and configure cross-cluster service discovery: kubectl --kubeconfig=workload-cluster-1.kubeconfig apply -f istio-multicluster.yaml Verify Cross-Cluster Communication:\nDeploy a sample application (e.g., httpbin) on workload-cluster-1 and access it from workload-cluster-2 using Istio service routing. "
+},
+{
+	"uri": "//localhost:1313/6-distribution/",
+	"title": "Workload Distribution",
+	"tags": [],
+	"description": "",
+	"content": "Distribute workloads across clusters for high availability and load balancing.\nDeploy Sample Application:\nDeploy a sample app (e.g., nginx) on both workload clusters: kubectl --kubeconfig=workload-cluster-1.kubeconfig apply -f nginx-deployment.yaml\rkubectl --kubeconfig=workload-cluster-2.kubeconfig apply -f nginx-deployment.yaml Set Up Multi-Cluster Load Balancing:\nUse an external DNS service or AWS Global Accelerator to distribute traffic across clusters. Example with AWS Route 53: aws route53 create-hosted-zone --name example.com --caller-reference $(date +%s) Create DNS records pointing to both clusters’ ingress controllers. Test Workload Distribution:\nAccess the application via the Route 53 DNS name and verify load balancing across clusters. "
+},
+{
+	"uri": "//localhost:1313/7-security/",
+	"title": "Implement Governance and Security",
+	"tags": [],
+	"description": "",
+	"content": "Apply governance and security policies to ensure compliance and secure operations.\nDefine RBAC Policies:\nCreate a role for restricted access in workload clusters: kubectl --kubeconfig=workload-cluster-1.kubeconfig create role developer --verb=get,list --resource=pods\rkubectl --kubeconfig=workload-cluster-1.kubeconfig create rolebinding developer-binding --role=developer --user=dev-user Network Policies:\nApply a network policy to restrict traffic: apiVersion: networking.k8s.io/v1 kind: NetworkPolicy metadata: name: restrict-access namespace: default spec: podSelector: matchLabels: app: nginx policyTypes: - Ingress ingress: - from: - podSelector: matchLabels: role: frontend Apply to both workload clusters: kubectl --kubeconfig=workload-cluster-1.kubeconfig apply -f network-policy.yaml Enable AWS Security Features:\nEnable AWS EKS encryption for secrets: aws eks associate-encryption-config --cluster-name workload-cluster-1 --encryption-config file://encryption-config.json Use AWS IAM roles for service accounts (IRSA) to secure pod access to AWS resources. Audit Logging:\nEnable EKS control plane logging: aws eks update-cluster-config --name workload-cluster-1 --logging \u0026#39;{\u0026#34;clusterLogging\u0026#34;:[{\u0026#34;types\u0026#34;:[\u0026#34;api\u0026#34;,\u0026#34;audit\u0026#34;,\u0026#34;authenticator\u0026#34;,\u0026#34;controllerManager\u0026#34;,\u0026#34;scheduler\u0026#34;],\u0026#34;enabled\u0026#34;:true}]}\u0026#39; "
+},
+{
+	"uri": "//localhost:1313/8-cost/",
+	"title": "Cost Management",
+	"tags": [],
+	"description": "",
+	"content": "Optimize costs for multi-cluster operations.\nTag Resources:\nTag all clusters and resources for cost tracking: aws eks tag-resource --resource-arn arn:aws:eks:us-east-1:\u0026lt;account-id\u0026gt;:cluster/workload-cluster-1 --tags Environment=Workshop,CostCenter=Training Use Spot Instances:\nModify worker node groups to use Spot Instances: eksctl create nodegroup --cluster workload-cluster-1 --spot --instance-types t3.medium Monitor Costs:\nEnable AWS Cost Explorer and create a cost allocation report for the Environment=Workshop tag. "
+},
+{
+	"uri": "//localhost:1313/9-procedures/",
+	"title": "Operational Procedures",
+	"tags": [],
+	"description": "",
+	"content": "Define procedures for ongoing management.\nCluster Upgrades:\nUpgrade a workload cluster using Cluster API: kubectl patch cluster workload-cluster-1 --type merge -p \u0026#39;{\u0026#34;spec\u0026#34;:{\u0026#34;kubernetesVersion\u0026#34;:\u0026#34;v1.26.0\u0026#34;}}\u0026#39; Backup and Restore:\nUse Velero for cluster backups: velero install --provider aws --plugins velero/velero-plugin-for-aws --bucket workshop-backup\rvelero backup create workload-cluster-1-backup --include-cluster-resources=true Monitoring and Alerts:\nDeploy Prometheus and Grafana for monitoring: kubectl --kubeconfig=workload-cluster-1.kubeconfig apply -f prometheus-grafana.yaml Set up alerts for CPU/memory usage and cluster health. Scaling:\nScale worker nodes: eksctl scale nodegroup --cluster workload-cluster-1 --nodes 4 "
+},
+{
+	"uri": "//localhost:1313/10-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "To avoid unnecessary costs, clean up all resources created during the workshop.\nDelete Workload Clusters:\nkubectl delete cluster workload-cluster-1\rkubectl delete cluster workload-cluster-2 Delete Management Cluster:\neksctl delete cluster --name management-cluster --region us-east-1 Remove VPC Peering:\naws ec2 delete-vpc-peering-connection --vpc-peering-connection-id \u0026lt;peering-id\u0026gt; --region us-east-1 Delete SSH Key:\naws ec2 delete-key-pair --key-name workshop-key\rrm workshop-key.pem Remove Backup Bucket:\naws s3 rb s3://workshop-backup --force Verify Cleanup:\nCheck AWS Console or CLI to ensure no resources (EKS clusters, EC2 instances, VPCs) remain. "
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
