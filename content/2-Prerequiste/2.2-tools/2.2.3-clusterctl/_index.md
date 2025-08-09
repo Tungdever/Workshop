@@ -10,24 +10,14 @@ clusterctl is a command-line tool for managing Kubernetes clusters using the Clu
 
 ## Install
 
-1. **Install clusterctl binary with curl on Windows using PowerShell**  
-   - Go to the working directory where you want clusterctl downloaded.
-   - Download the latest release; on Windows, type: 
-   ```
-   curl.exe -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.10.4/clusterctl-windows-amd64.exe -o clusterctl.exe
-   ```
-![clusterctl](/images/2.prerequisite/014-clusterctl.png)
-2. **Add to PATH Environment Variable**  
-   - Open **Edit the system environment variables** on Windows.  
-   - In **System Variables**, find and edit the **Path** variable.  
-   - Add the directory containing **clusterctl.exe** (`C:\Program Files\clusterctl`).  
-   - Save changes.
-
-![clusterctl](/images/2.prerequisite/015-clusterctl.png)
+- **Run the following commands:**
+```
+curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.9.3/clusterctl-linux-amd64 -o clusterctl
+chmod +x clusterctl
+sudo install -o root -g root -m 0755 clusterctl /usr/local/bin/clusterctl
+```
 ## Verify Installation
    Test to ensure the version you installed is up-to-date:
    ```
    clusterctl version
    ```
-![clusterctl](/images/2.prerequisite/016-clusterctl.png)
-

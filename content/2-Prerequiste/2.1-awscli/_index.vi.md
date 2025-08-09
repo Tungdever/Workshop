@@ -6,15 +6,15 @@ chapter: false
 pre: " <b> 2.1 </b> "
 ---
 
-{{% notice info %}}
-Python đã được cài đặt (phiên bản 3.7 trở lên) để cài đặt AWS CLI phiên bản 2.x.
-Đây là hướng dẫn cài đặt trên Windows.
-{{% /notice %}}
+
 ### 1. Cài đặt
-- **Tải AWS CLI**: Truy cập [Trình cài đặt AWS CLI MSI cho Windows](https://awscli.amazonaws.com/AWSCLIV2-version.number.msi)
-- **Chạy trình cài đặt MSI**
-- **Để xác nhận cài đặt, mở menu Start, tìm kiếm `cmd` để mở cửa sổ Command Prompt, và tại Command Prompt sử dụng lệnh ```aws --version```.**
-![CLI](/images/2.prerequisite/001-awscli.png)
+- **Chạy đoạn lệnh dưới đây:**
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
 ### 2. Cấu hình
 - **Chạy lệnh**:
 ```

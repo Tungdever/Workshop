@@ -12,21 +12,21 @@
     <title>Cài đặt và cấu hình AWS CLI :: Kubernetes Multi-Cluster Management với Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194118" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194118" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194118" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194118" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194118" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194118" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194118" rel="stylesheet">
-    <link href="/css/theme.css?1754194118" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194118" rel="stylesheet">
+    <link href="/css/nucleus.css?1754719926" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754719926" rel="stylesheet">
+    <link href="/css/hybrid.css?1754719926" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754719926" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754719926" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754719926" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754719926" rel="stylesheet">
+    <link href="/css/theme.css?1754719926" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754719926" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194118" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754719926" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194118"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754719926"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194118"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194118"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754719926"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754719926"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194118"></script>
+<script type="text/javascript" src="/js/search.js?1754719926"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI cho Cluster API)" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI cho Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/vi/4-creclusters/" title="Tạo Workload Clusters" class="dd-item 
+    <li data-nav-id="/vi/4-creclusters/" title="Tạo Workload Cluster" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-creclusters/">
-           <b> 4. </b> Tạo Workload Clusters
+           <b> 4. </b> Tạo Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -769,19 +825,14 @@
 
 
 
-	
-<div class="notices info" ><p>Python đã được cài đặt (phiên bản 3.7 trở lên) để cài đặt AWS CLI phiên bản 2.x.
-Đây là hướng dẫn cài đặt trên Windows.</p>
-</div>
-
-<h3 id="1-cài-đặt">1. Cài đặt</h3>
+	<h3 id="1-cài-đặt">1. Cài đặt</h3>
 <ul>
-<li><strong>Tải AWS CLI</strong>: Truy cập <a href="https://awscli.amazonaws.com/AWSCLIV2-version.number.msi">Trình cài đặt AWS CLI MSI cho Windows</a></li>
-<li><strong>Chạy trình cài đặt MSI</strong></li>
-<li><strong>Để xác nhận cài đặt, mở menu Start, tìm kiếm <code>cmd</code> để mở cửa sổ Command Prompt, và tại Command Prompt sử dụng lệnh <code>aws --version</code>.</strong>
-<img src="/images/2.prerequisite/001-awscli.png" alt="CLI"></li>
+<li><strong>Chạy đoạn lệnh dưới đây:</strong></li>
 </ul>
-<h3 id="2-cấu-hình">2. Cấu hình</h3>
+<pre tabindex="0"><code>curl &#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&#34; -o &#34;awscliv2.zip&#34;
+unzip awscliv2.zip
+sudo ./aws/install
+</code></pre><h3 id="2-cấu-hình">2. Cấu hình</h3>
 <ul>
 <li><strong>Chạy lệnh</strong>:</li>
 </ul>
@@ -961,6 +1012,38 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1214,19 +1297,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194118"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194118"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194118"></script>
-    <script src="/js/jquery.sticky.js?1754194118"></script>
-    <script src="/js/featherlight.min.js?1754194118"></script>
-    <script src="/js/highlight.pack.js?1754194118"></script>
+    <script src="/js/clipboard.min.js?1754719926"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754719926"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754719926"></script>
+    <script src="/js/jquery.sticky.js?1754719926"></script>
+    <script src="/js/featherlight.min.js?1754719926"></script>
+    <script src="/js/highlight.pack.js?1754719926"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194118"></script>
-    <script src="/js/learn.js?1754194118"></script>
-    <script src="/js/hugo-learn.js?1754194118"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754719926"></script>
+    <script src="/js/learn.js?1754719926"></script>
+    <script src="/js/hugo-learn.js?1754719926"></script>
 
-    <link href="/mermaid/mermaid.css?1754194118" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194118"></script>
+    <link href="/mermaid/mermaid.css?1754719926" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754719926"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

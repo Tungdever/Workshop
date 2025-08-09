@@ -6,15 +6,14 @@ chapter : false
 pre : " <b> 2.1 </b> "
 ---
 
-{{% notice info %}}
-Python installed (version 3.7 or more) to install for AWS Cli version 2.x. 
-This is an installation guide on Windows
-{{% /notice %}}
 ### 1. Install
-- **Download AWS CLI**: Go to [AWS CLI MSI installer for Windows](https://awscli.amazonaws.com/AWSCLIV2-version.number.msi)
-- **Running the MSI installer**
-- **To confirm the installation, open the Start menu, search for cmd to open a command prompt window, and at the command prompt use the ``` aws --version ``` command.** 
-![CLI](/images/2.prerequisite/001-awscli.png)
+- **Run the following commands:**
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
 ### 2. Configuration
 - **Run configuration command**:
 ``` 

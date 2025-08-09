@@ -12,21 +12,21 @@
     <title>Clean up resources :: Kubernetes Multi-Cluster Management with Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194117" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194117" rel="stylesheet">
-    <link href="/css/theme.css?1754194117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194117" rel="stylesheet">
+    <link href="/css/nucleus.css?1754751022" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754751022" rel="stylesheet">
+    <link href="/css/hybrid.css?1754751022" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754751022" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754751022" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754751022" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754751022" rel="stylesheet">
+    <link href="/css/theme.css?1754751022" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754751022" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754751022" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754751022"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754751022"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754751022"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194117"></script>
+<script type="text/javascript" src="/js/search.js?1754751022"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI for Cluster API)" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI for Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/4-creclusters/" title="Create Workload Clusters" class="dd-item 
+    <li data-nav-id="/4-creclusters/" title="Create Workload Cluster" class="dd-item 
         
         
         
         ">
       <a href="/4-creclusters/">
-           <b> 4. </b> Create Workload Clusters
+           <b> 4. </b> Create Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -754,37 +810,32 @@
 
 
 	<p>To avoid unnecessary costs, clean up all resources created during the workshop.</p>
-<ol>
-<li>
-<p><strong>Delete Workload Clusters</strong>:</p>
-<pre tabindex="0"><code>kubectl delete cluster workload-cluster-1
-kubectl delete cluster workload-cluster-2
-</code></pre></li>
-<li>
-<p><strong>Delete Management Cluster</strong>:</p>
-<pre tabindex="0"><code>eksctl delete cluster --name management-cluster --region us-east-1
-</code></pre></li>
-<li>
-<p><strong>Remove VPC Peering</strong>:</p>
-<pre tabindex="0"><code>aws ec2 delete-vpc-peering-connection --vpc-peering-connection-id &lt;peering-id&gt; --region us-east-1
-</code></pre></li>
-<li>
-<p><strong>Delete SSH Key</strong>:</p>
-<pre tabindex="0"><code>aws ec2 delete-key-pair --key-name workshop-key
-rm workshop-key.pem
-</code></pre></li>
-<li>
-<p><strong>Remove Backup Bucket</strong>:</p>
-<pre tabindex="0"><code>aws s3 rb s3://workshop-backup --force
-</code></pre></li>
-<li>
-<p><strong>Verify Cleanup</strong>:</p>
+<p>To make sure there’s no unwanted cloud cost, please clean up the environment.</p>
 <ul>
-<li>Check AWS Console or CLI to ensure no resources (EKS clusters, EC2 instances, VPCs) remain.</li>
+<li>Delete the Argo CD applications:</li>
 </ul>
-</li>
-</ol>
-
+<pre tabindex="0"><code>kubectl delete -f ./management/argocd-ec2-app.yaml 
+kubectl delete -f ./management/argocd-eks-app.yaml
+kubectl delete -f ./app/eks-app/eks-nginx-deploy.yaml
+</code></pre><ul>
+<li>Delete the created clusters:</li>
+</ul>
+<pre tabindex="0"><code>kubectl delete cluster capi-eks
+kubectl delete cluster capi-ec2
+</code></pre><ul>
+<li>Delete the created EC2 SSH key in each region:</li>
+</ul>
+<pre tabindex="0"><code>aws ec2 delete-key-pair --key-name capi-eks --region ap-southeast-2
+aws ec2 delete-key-pair --key-name capi-ec2 --region us-east-1
+</code></pre><ul>
+<li>Delete the CloudFormation Stack when running “clusterawsadm boostrap” command to create all necessary IAM resources</li>
+</ul>
+<pre tabindex="0"><code>aws cloudformation delete-stack --stack-name cluster-api-provider-aws-sigs-k8s-io --region us-east-1
+</code></pre><ul>
+<li>Delete management cluster</li>
+</ul>
+<pre tabindex="0"><code>kind delete cluster - 
+</code></pre>
 
 
 
@@ -883,6 +934,38 @@ rm workshop-key.pem
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1137,19 +1220,19 @@ rm workshop-key.pem
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194117"></script>
-    <script src="/js/jquery.sticky.js?1754194117"></script>
-    <script src="/js/featherlight.min.js?1754194117"></script>
-    <script src="/js/highlight.pack.js?1754194117"></script>
+    <script src="/js/clipboard.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754751022"></script>
+    <script src="/js/jquery.sticky.js?1754751022"></script>
+    <script src="/js/featherlight.min.js?1754751022"></script>
+    <script src="/js/highlight.pack.js?1754751022"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194117"></script>
-    <script src="/js/learn.js?1754194117"></script>
-    <script src="/js/hugo-learn.js?1754194117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754751022"></script>
+    <script src="/js/learn.js?1754751022"></script>
+    <script src="/js/hugo-learn.js?1754751022"></script>
 
-    <link href="/mermaid/mermaid.css?1754194117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194117"></script>
+    <link href="/mermaid/mermaid.css?1754751022" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754751022"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

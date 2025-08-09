@@ -12,21 +12,21 @@
     <title>Set Up Cross-Cluster Networking :: Kubernetes Multi-Cluster Management with Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194117" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194117" rel="stylesheet">
-    <link href="/css/theme.css?1754194117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194117" rel="stylesheet">
+    <link href="/css/nucleus.css?1754751022" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754751022" rel="stylesheet">
+    <link href="/css/hybrid.css?1754751022" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754751022" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754751022" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754751022" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754751022" rel="stylesheet">
+    <link href="/css/theme.css?1754751022" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754751022" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754751022" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754751022"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754751022"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754751022"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194117"></script>
+<script type="text/javascript" src="/js/search.js?1754751022"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI for Cluster API)" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI for Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/4-creclusters/" title="Create Workload Clusters" class="dd-item 
+    <li data-nav-id="/4-creclusters/" title="Create Workload Cluster" class="dd-item 
         
         
         
         ">
       <a href="/4-creclusters/">
-           <b> 4. </b> Create Workload Clusters
+           <b> 4. </b> Create Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -753,38 +809,9 @@
 
 
 
-	<p>Enable communication between clusters using AWS VPC peering or a service mesh like Istio.</p>
-<ol>
-<li>
-<p><strong>Create VPC Peering</strong>:</p>
-<ul>
-<li>Create a peering connection between the management cluster and workload clusters:
-<pre tabindex="0"><code>aws ec2 create-vpc-peering-connection --vpc-id &lt;management-vpc-id&gt; --peer-vpc-id &lt;workload-vpc-id&gt; --region us-east-1
-</code></pre></li>
-<li>Accept the peering connection:
-<pre tabindex="0"><code>aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id &lt;peering-id&gt; --region us-east-1
-</code></pre></li>
-<li>Update route tables to allow traffic between VPCs.</li>
-</ul>
-</li>
-<li>
+	<p>Enable communication between clusters using Istio.</p>
 <p><strong>Install Istio for Service Mesh</strong>:</p>
-<ul>
-<li>Install Istio on the management cluster:
-<pre tabindex="0"><code>istioctl install --set profile=demo -y
-</code></pre></li>
-<li>Deploy Istio on workload clusters and configure cross-cluster service discovery:
-<pre tabindex="0"><code>kubectl --kubeconfig=workload-cluster-1.kubeconfig apply -f istio-multicluster.yaml
-</code></pre></li>
-</ul>
-</li>
-<li>
 <p><strong>Verify Cross-Cluster Communication</strong>:</p>
-<ul>
-<li>Deploy a sample application (e.g., <code>httpbin</code>) on <code>workload-cluster-1</code> and access it from <code>workload-cluster-2</code> using Istio service routing.</li>
-</ul>
-</li>
-</ol>
 
 
 
@@ -949,6 +976,38 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1128,7 +1187,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/4-creclusters/" title="Create Workload Clusters"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/4-creclusters/" title="Create Workload Cluster"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/6-distribution/" title="Workload Distribution" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1141,19 +1200,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194117"></script>
-    <script src="/js/jquery.sticky.js?1754194117"></script>
-    <script src="/js/featherlight.min.js?1754194117"></script>
-    <script src="/js/highlight.pack.js?1754194117"></script>
+    <script src="/js/clipboard.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754751022"></script>
+    <script src="/js/jquery.sticky.js?1754751022"></script>
+    <script src="/js/featherlight.min.js?1754751022"></script>
+    <script src="/js/highlight.pack.js?1754751022"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194117"></script>
-    <script src="/js/learn.js?1754194117"></script>
-    <script src="/js/hugo-learn.js?1754194117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754751022"></script>
+    <script src="/js/learn.js?1754751022"></script>
+    <script src="/js/hugo-learn.js?1754751022"></script>
 
-    <link href="/mermaid/mermaid.css?1754194117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194117"></script>
+    <link href="/mermaid/mermaid.css?1754751022" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754751022"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

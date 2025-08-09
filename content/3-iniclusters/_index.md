@@ -5,98 +5,37 @@ weight : 3
 chapter : false
 pre : " <b> 3. </b> "
 ---
-### 1. Deploy Management Cluster
-Create AWS Identity and Access Management (IAM) roles for use with Kubernetes Cluster API Provider AWS.
-  ```
-  clusterawsadm bootstrap iam create-cloudformation-stack --region us-east-1
-  ```
-
-![clusterawsadm](/images/2.prerequisite/041-prepare.png)
-The management cluster is an EKS cluster hosting Cluster API components to manage workload clusters.
-
-- Create the management cluster with eksctl:
-
-  ```
-  eksctl create cluster --name management-cluster --region us-east-1 --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed 
-  ```
-- If you encounter a timeout error during cluster creation, try switching to public DNS:
-  - Open Control Panel → Network and Sharing Center → Change adapter settings.
-  - Right-click your active connection (Wi-Fi/Ethernet) → Properties.
-  - Select Internet Protocol Version 4 (TCP/IPv4) → Properties.
-  Set:
-  - Preferred DNS: 8.8.8.8 (Google)
-  - Alternate DNS: 8.8.4.4 (Google) or 1.1.1.1 (Cloudflare)
-
-{{% notice info %}}
-You may also try turning off Windows Firewall temporarily if DNS changes don’t resolve the issue. 
-{{% /notice %}}
-
-{{% notice info %}}
-This command may take 10-15 minutes to complete. 
-{{% /notice %}}
-
-**After successful creation**
-
-![inicluster](/images/2.prerequisite/019-inicluster.png)
-
-**Verify witk EKS and CloudFormation**
-
-![inicluster](/images/2.prerequisite/020-inicluster.png)
-![inicluster](/images/2.prerequisite/021-inicluster.png)
-
-
-**Configure kubectl**:
-
-  After cluster creation, configure **kubectl** to connect to your cluster:
-  ```
-  aws eks update-kubeconfig --name management-cluster --region us-east-1
-  ```
-![inicluster](/images/2.prerequisite/037-inicluster.png)
-
-**Verify Cluster**
-
-  Test your cluster connection:
-  ```
-  # Check cluster nodes
-  kubectl get nodes
-
-  # Check system pods
-  kubectl get pods --all-namespaces
-
-  # Get cluster information
-  kubectl cluster-info
-  ```
-### 2. Initialize Cluster API
-Cluster API is a Kubernetes project providing declarative APIs for cluster lifecycle management. Here, we initialize Cluster API with the AWS provider.
-
-- **Encode credentials for use with clusterctl init**
-
-  ```
-  $env:AWS_REGION = "us-east-1"
-  $env:AWS_B64ENCODED_CREDENTIALS = clusterawsadm bootstrap credentials encode-as-profile
-  ```
-- **Initialize Cluster API with AWS provider**:
-
-  ```
-  clusterctl init --infrastructure aws
-  ```
-![inicluster](/images/2.prerequisite/038-inicluster.png)
-### 3. Verify Initialization
-
-- **Check pods in `capi-system` and `capa-system` namespace**:
-
+### 1. Fork the git repo
+Fork the Git repository `https://github.com/aws-samples/eks-ec2-clusterapi-gitops` to your own Github account, clone to your local workstation, then change to the following directory
 ```
-# Check core Cluster API components
-kubectl get pods -n capi-system
-
-# Check AWS provider components
-kubectl get pods -n capa-system
-
-# Verify CRDs are installed
-kubectl get crd | findstr cluster-api
+cd ./eks-ec2-clusterapi-gitops
+```
+### 2. Initialize the management cluster
+Create the kind cluster and verify the success of the creation:
+```
+kind create cluster
+kubectl cluster-info --context kind-kind
 ```
 
-![inicluster](/images/2.prerequisite/040-inicluster.png)
-![inicluster](/images/2.prerequisite/039-inicluster.png)
+The Cluster API Provider for AWS includes clusterawsadm, a tool to manage IAM objects. It uses environment variables, encodes them into a Kubernetes Secret in a Kind cluster, and retrieves necessary permissions to create workload clusters.
+```
+clusterawsadm bootstrap iam create-cloudformation-stack --region us-east-1
+```
+
+### 3. Predefine all necessary environment parameters
+```
+export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-as-profile)
+export AWS_REGION=us-east-1
+export EKS=true
+export EXP_MACHINE_POOL=true
+export CAPA_EKS_IAM=true
+```
+
+### 4. Initialize Cluster API with AWS provider
+To install the Cluster API components for AWS, the kubeadm boostrap provider, and the kubeadm control-plane provider, and transform the Kind cluster into a management cluster, we use the clusterctl init command.
+```
+clusterctl init --infrastructure aws
+```
+
 
 

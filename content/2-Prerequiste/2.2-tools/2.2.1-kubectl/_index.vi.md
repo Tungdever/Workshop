@@ -11,13 +11,12 @@ Công cụ này được đặt tên là Kubectl
 
 ## Cài đặt
 
-- Tải [Download Binary](https://dl.k8s.io/v1.33.3/bin/windows/amd64/kubectl.exe)
-- Di chuyển đến một thư mục: Di chuyển **kubectl.exe** đến một thư mục như `C:\Program Files\kubectl` hoặc một thư mục khác
-- Thêm đường dẫn thư mục vào **system environment variable** sử dụng kubectl từ bất cứ đâu
-
-![kublectl](/images/2.prerequisite/010-kubectl.png)
+- **Chạy đoạn lệnh dưới đây:**
+```
+curl -LO "https://dl.k8s.io/release/v1.33.3/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
 
 ## Kiểm tra cài đặt
     kubectl version --client 
-
-![kublectl](/images/2.prerequisite/011-kubectl.png)

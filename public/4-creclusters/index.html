@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create Workload Clusters :: Kubernetes Multi-Cluster Management with Cluster API</title>
+    <title>Create Workload Cluster :: Kubernetes Multi-Cluster Management with Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194117" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194117" rel="stylesheet">
-    <link href="/css/theme.css?1754194117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194117" rel="stylesheet">
+    <link href="/css/nucleus.css?1754751022" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754751022" rel="stylesheet">
+    <link href="/css/hybrid.css?1754751022" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754751022" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754751022" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754751022" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754751022" rel="stylesheet">
+    <link href="/css/theme.css?1754751022" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754751022" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754751022" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754751022"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754751022"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754751022"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194117"></script>
+<script type="text/javascript" src="/js/search.js?1754751022"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI for Cluster API)" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI for Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/4-creclusters/" title="Create Workload Clusters" class="dd-item 
+    <li data-nav-id="/4-creclusters/" title="Create Workload Cluster" class="dd-item 
         
         active
         
         ">
       <a href="/4-creclusters/">
-           <b> 4. </b> Create Workload Clusters
+           <b> 4. </b> Create Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -718,7 +774,7 @@
             
           
           
-            <a href='/'>Kubernetes Multi-Cluster Management with Cluster API</a> > Create Workload Clusters
+            <a href='/'>Kubernetes Multi-Cluster Management with Cluster API</a> > Create Workload Cluster
           
         
           
@@ -729,7 +785,23 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#generate-the-kubernetes-cluster-manifests">Generate the Kubernetes Cluster Manifests</a></li>
+    <li><a href="#install-argo-cd-on-the-management-kubernetes-cluster">Install Argo CD on the management Kubernetes cluster</a></li>
+    <li><a href="#create-workload-clusters">Create Workload Clusters</a>
+      <ul>
+        <li><a href="#create-clusters-for-k8s-cluster-that-runs-on-ec2">Create Clusters for K8S cluster that runs on EC2:</a></li>
+      </ul>
+    </li>
+    <li><a href="#cluster-upgrades">Cluster Upgrades</a></li>
+    <li><a href="#cluster-autoscaling">Cluster Autoscaling</a>
+      <ul>
+        <li><a href="#1-ec2-based-cluster-autoscaling">1. EC2-Based Cluster Autoscaling</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -745,7 +817,7 @@
           
             <h1>
               
-              Create Workload Clusters
+              Create Workload Cluster
             </h1>
           
 
@@ -753,148 +825,313 @@
 
 
 
-	<p>Workload clusters are managed by the management cluster using Cluster API.</p>
+	<h2 id="generate-the-kubernetes-cluster-manifests">Generate the Kubernetes Cluster Manifests</h2>
 <ol>
-<li><strong>Create ClusterClass Definition</strong>:</li>
+<li><strong>Create the SSH key</strong>:</li>
 </ol>
-<ul>
-<li>
-<p>Create a file called <code>cluster-class.yaml</code>:</p>
-<pre tabindex="0"><code>apiVersion: cluster.x-k8s.io/v1beta1
-kind: ClusterClass
-metadata:
-name: aws-eks-clusterclass
-namespace: default
-spec:
-controlPlane:
-   ref:
-      apiVersion: controlplane.cluster.x-k8s.io/v1beta2
-      kind: AWSManagedControlPlaneTemplate
-      name: aws-eks-control-plane-template
-   machineInfrastructure:
-      ref:
-      apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
-      kind: AWSManagedControlPlaneTemplate
-      name: aws-eks-control-plane-template
-infrastructure:
-   ref:
-      apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
-      kind: AWSClusterTemplate
-      name: aws-cluster-template
-workers:
-   machineDeployments:
-   - class: default-worker
-      template:
-      bootstrap:
-         ref:
-            apiVersion: bootstrap.cluster.x-k8s.io/v1beta2
-            kind: EKSConfigTemplate
-            name: aws-eks-bootstrap-template
-      infrastructure:
-         ref:
-            apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
-            kind: AWSMachineTemplate
-            name: aws-machine-template
----
-apiVersion: controlplane.cluster.x-k8s.io/v1beta2
-kind: AWSManagedControlPlaneTemplate
-metadata:
-name: aws-eks-control-plane-template
-namespace: default
-spec:
-template:
-   spec:
-      region: us-east-1
-      version: &#34;1.32&#34;
-      eksClusterName: &#34;{{.cluster.name}}&#34;
-      endpointAccess:
-      public: true
-      private: false
----
-apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
-kind: AWSClusterTemplate
-metadata:
-name: aws-cluster-template
-namespace: default
-spec:
-template:
-   spec:
-      region: us-east-1
-      sshKeyName: &#34;default&#34;
----
-apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
-kind: AWSMachineTemplate
-metadata:
-name: aws-machine-template
-namespace: default
-spec:
-template:
-   spec:
-      instanceType: t3.medium
-      iamInstanceProfile: &#34;nodes.cluster-api-provider-aws.sigs.k8s.io&#34;
-      sshKeyName: &#34;default&#34;
----
-apiVersion: bootstrap.cluster.x-k8s.io/v1beta2
-kind: EKSConfigTemplate
-metadata:
-name: aws-eks-bootstrap-template
-namespace: default
-spec:
-template:
-   spec: {}
-</code></pre></li>
-</ul>
-<ol start="2">
-<li>
-<p><strong>Apply ClusterClass</strong>:</p>
-<pre tabindex="0"><code>kubectl apply -f cluster-class.yaml
-</code></pre></li>
-<li>
-<p><strong>Generate and Deploy Workload Cluster</strong>:</p>
-</li>
+<pre tabindex="0"><code>aws ec2 create-key-pair --key-name capi-eks --region ap-southeast-2 --query &#39;KeyMaterial&#39; --output text &gt; capi-eks.pem
+aws ec2 create-key-pair --key-name capi-ec2 --region us-east-1 --query &#39;KeyMaterial&#39; --output text &gt; capi-ec2.pem
+</code></pre><ol start="2">
+<li><strong>Define environment variables</strong>:</li>
 </ol>
+<pre tabindex="0"><code>export AWS_CONTROL_PLANE_MACHINE_TYPE=t3.medium
+export AWS_NODE_MACHINE_TYPE=t3.medium
+</code></pre><ol start="3">
+<li><strong>Generate the Kubernetes Cluster Manifest for EC2</strong>:</li>
+</ol>
+<pre tabindex="0"><code>export AWS_SSH_KEY_NAME=capi-ec2 (Given we are deploying the EC2 cluster and EKS cluster in different regions)
+export AWS_REGION=us-east-1 
+clusterctl generate cluster capi-ec2 --kubernetes-version v1.31.0 --control-plane-machine-count=3 --worker-machine-count=3 &gt; ./capi-cluster/aws-ec2/aws-ec2.yaml
+</code></pre><ol start="4">
+<li><strong>Generate the Kubernetes Cluster Manifest for EKS</strong>:</li>
+</ol>
+<pre tabindex="0"><code>export AWS_SSH_KEY_NAME=capi-eks
+export AWS_REGION=ap-southeast-2
+clusterctl generate cluster capi-eks --flavor eks-managedmachinepool --kubernetes-version v1.31.0 --worker-machine-count=3 &gt; ./capi-cluster/aws-eks/capi-eks.yaml
+</code></pre><h2 id="install-argo-cd-on-the-management-kubernetes-cluster">Install Argo CD on the management Kubernetes cluster</h2>
+<p><strong>install Argo CD in the Kind management cluster:</strong></p>
+<pre tabindex="0"><code>kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+</code></pre><p><strong>Get the first login password to Argo CD Web UI:</strong></p>
+<pre tabindex="0"><code>kubectl get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo
+</code></pre><p><strong>Set up Argo CD can be authenticated to Git</strong></p>
 <ul>
 <li>
-<p>Generate Cluster Configuration:</p>
-<pre tabindex="0"><code>$CLUSTER_NAME=workload-cluster-1
-$KUBERNETES_VERSION=v1.28.0
-$AWS_CONTROL_PLANE_MACHINE_TYPE=t3.medium
-$AWS_NODE_MACHINE_TYPE=t3.medium
-clusterctl generate cluster ${CLUSTER_NAME} --kubernetes-version ${KUBERNETES_VERSION} --control-plane-machine-count=1 --worker-machine-count=3 &gt; ${CLUSTER_NAME}.yaml
-</code></pre></li>
-</ul>
-<ol start="4">
-<li>
-<p><strong>Deploy Workload Cluster</strong>:</p>
-<pre tabindex="0"><code>kubectl apply -f ${CLUSTER_NAME}.yaml
-kubectl get cluster
-kubectl get awscluster
-kubectl get awsmanagedcontrolplane
-</code></pre></li>
-<li>
-<p><strong>Deploy Workload Cluster</strong>:</p>
-<pre tabindex="0"><code>kubectl get clusters
-
-clusterctl describe cluster capa-workload-cluster
-</code></pre></li>
-<li>
-<p><strong>Access Workload Cluster</strong>:</p>
-<ul>
-<li>Retrieve kubeconfig for the workload cluster:
-<pre tabindex="0"><code>clusterctl get kubeconfig workload-cluster-1 &gt; workload-cluster-1.kubeconfig
-</code></pre></li>
-<li>Test access:
-<pre tabindex="0"><code>kubectl --kubeconfig=workload-cluster-1.kubeconfig get nodes
-</code></pre></li>
+<p><strong>Login Argo CD’s web portal:</strong></p>
+<pre tabindex="0"><code>kubectl port-forward svc/argocd-server 8080:80
+</code></pre><ul>
+<li>Username: admin</li>
+<li>password: <code>first login password</code>
+<img src="/images/4.workload/001-workload.png" alt="workload"></li>
 </ul>
 </li>
 <li>
-<p><strong>Repeat for Additional Clusters</strong>:</p>
+<p>Navigate setting &gt; Repositories &gt; Connect repo</p>
 <ul>
-<li>Generate and apply manifests for <code>workload-cluster-2</code> in a different AWS region (e.g., <code>us-east-1</code>) for multi-region setup.</li>
+<li>Choose your connection method: HTTP/HTTPS</li>
+<li>Type: Git</li>
+<li>Repository URL: Your url fork repo</li>
+<li>Select <code>skip server verification</code>
+<img src="/images/4.workload/003-workload.png" alt="workload">
+<img src="/images/4.workload/002-workload.png" alt="workload"></li>
 </ul>
 </li>
+<li>
+<p>Connect</p>
+</li>
+</ul>
+<h2 id="create-workload-clusters">Create Workload Clusters</h2>
+<p><strong>To authorize Argo CD to manage Cluster API objects, create a ClusterRoleBinding to grant the necessary permissions to the argocd-application-controller ServiceAccount, using the cluster-admin role for simplicity.</strong></p>
+<pre tabindex="0"><code>kubectl apply -f ./management/argo-cluster-role-binding.yaml
+</code></pre><pre tabindex="0"><code>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-admin-argocd-contoller
+subjects:
+  - kind: ServiceAccount
+    name: argocd-application-controller
+    namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+</code></pre><h3 id="create-clusters-for-k8s-cluster-that-runs-on-ec2">Create Clusters for K8S cluster that runs on EC2:</h3>
+<p>To create a new EKS cluster or a K8S cluster that runs on EC2, we can first define an application in a declarative approach, as a representation of a collection of Kubernetes manifests that makes up all the pieces to deploy the new cluster. In this guide, all of the configuration of the Argo CD application to be added is stored in “Management” folder of the cloned repository. For example, below is the application manifest file for creating a new K8S cluster that runs on EC2:</p>
+<pre tabindex="0"><code>apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ec2-cluster
+spec:
+  destination:
+    name: &#39;&#39;
+    namespace: &#39;default&#39;
+    server: &#39;https://kubernetes.default.svc&#39;
+  source:
+    path: capi-cluster/aws-ec2
+    repoURL: &#39;[update the Git Repo accordingly]&#39; #Indicate which source repo for fetching the cluster configuration
+    targetRevision: HEAD
+  project: default #You can give a project name here
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+</code></pre><p>After modifying the Argo CD application yaml file as above, commit and push the updates to the source repo:</p>
+<pre tabindex="0"><code>git push .
+git add .
+git commit -m “updates Argo CD app manifest file” 
+</code></pre><p>Run the following command to create a new Application to create the K8S cluster that runs on EC2:</p>
+<pre tabindex="0"><code>kubectl apply -f ./management/argocd-ec2-app.yaml
+</code></pre><p>We will use an Argo CD application to provision the EKS cluster. First, create an application and update the relevant YAML file to set the repoURL to your Git repository. Then, commit and push the changes to the source repository.</p>
+<pre tabindex="0"><code>kubectl apply -f ./management/argocd-eks-app.yaml
+</code></pre><p>Check status of the clusters</p>
+<pre tabindex="0"><code>clusterctl describe cluster capi-eks
+clusterctl describe cluster capi-ec2
+</code></pre><p>The EC2 cluster&rsquo;s worker nodes show a &ldquo;False&rdquo; READY status due to the absence of a CNI, preventing them from joining the cluster. For demonstration, deploy the Calico CNI to the EC2 cluster, which can be automated using Argo CD.</p>
+<p>Fetch the kubeconfig file for the newly created cluster on EC2:</p>
+<pre tabindex="0"><code>clusterctl get kubeconfig capi-ec2 &gt; capikubeconfig-ec2
+</code></pre><p>Deploy Calico CNI</p>
+<pre tabindex="0"><code>kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+</code></pre><p>Calico CNI is successfully deployed, check the cluster status again</p>
+<p>When creating an EKS cluster, the system automatically generates and stores kubeconfig files as secrets within the management cluster. This behavior differs from creating a non-managed cluster using the AWS provider, where kubeconfigs are not stored in this way. The secret containing the kubeconfig will be named [cluster-name]-user-kubeconfig, where you should replace [cluster-name] with the actual name of your cluster.</p>
+<p>To get the user kubeconfig for a cluster named ‘capi-eks’ you can run a command similar to:</p>
+<pre tabindex="0"><code>kubectl --namespace=default get secret capi-eks-user-kubeconfig -o jsonpath={.data.value} | base64 --decode &gt; capikubeconfig-eks
+</code></pre><h2 id="cluster-upgrades">Cluster Upgrades</h2>
+<ol>
+<li><strong>Choose the target Kubernetes version</strong> (e.g., <code>v1.32.0</code>).</li>
+<li><strong>Update your cluster manifest</strong>:</li>
 </ol>
+<ul>
+<li>
+<p>Open your EC2 manifest file <code>aws-ec2.yaml</code>.</p>
+<ul>
+<li>
+<p>Modify the <code>version</code> field in <code>KubeadmControlPlane</code> and <code>MachineDeployment</code>:
+<img src="/images/4.workload/005-workload.png" alt="workload">
+<img src="/images/4.workload/006-workload.png" alt="workload"></p>
+</li>
+<li>
+<p>Ensure the MachineDeployment is configured to handle rolling updates</p>
+<pre tabindex="0"><code>spec:
+strategy:
+   type: RollingUpdate
+   rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+</code></pre><p><img src="/images/4.workload/010-workload.png" alt="workload"></p>
+</li>
+<li>
+<p>Commit and push</p>
+</li>
+<li>
+<p>Check in argo cd UI
+<img src="/images/4.workload/007-workload.png" alt="workload"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Open your EC2 manifest file <code>capi-eks.yaml</code>.</p>
+<ul>
+<li>Modify the <code>version</code> field in <code>AWSManagedControlPlane</code>:
+<img src="/images/4.workload/008-workload.png" alt="workload"></li>
+<li>Commit and push</li>
+<li>Check in argo cd UI
+<img src="/images/4.workload/009-workload.png" alt="workload"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="cluster-autoscaling">Cluster Autoscaling</h2>
+<p>Autoscaling allows your clusters to dynamically adjust resources based on workload demand.</p>
+<h3 id="1-ec2-based-cluster-autoscaling">1. EC2-Based Cluster Autoscaling</h3>
+<h4 id="manifest-cluster-autoscaler">Manifest Cluster Autoscaler</h4>
+<p>Create file <code>management/cluster-autoscaler.yaml</code>:</p>
+<pre tabindex="0"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: cluster-autoscaler
+namespace: kube-system
+labels:
+   app: cluster-autoscaler
+spec:
+replicas: 1
+selector:
+   matchLabels:
+      app: cluster-autoscaler
+template:
+   metadata:
+      labels:
+      app: cluster-autoscaler
+      annotations:
+      cluster-autoscaler.kubernetes.io/safe-to-evict: &#34;false&#34;
+      prometheus.io/scrape: &#34;true&#34;
+      prometheus.io/port: &#34;8085&#34;
+   spec:
+      serviceAccountName: cluster-autoscaler
+      containers:
+      - name: cluster-autoscaler
+         image: registry.k8s.io/autoscaling/cluster-autoscaler:v1.32.0
+         resources:
+            limits:
+            cpu: 100m
+            memory: 300Mi
+            requests:
+            cpu: 100m
+            memory: 300Mi
+         command:
+            - ./cluster-autoscaler
+            - --cloud-provider=aws
+            - --nodes=1:10:capi-ec2-md-0
+            - --cluster-name=capi-ec2
+            - --skip-nodes-with-local-storage=false
+            - --balance-similar-node-groups
+            - --expander=least-waste
+            - --logtostderr=true
+            - --v=4
+         volumeMounts:
+            - name: ssl-certs
+            mountPath: /etc/ssl/certs/ca-certificates.crt
+            readOnly: true
+         securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 65534
+      volumes:
+      - name: ssl-certs
+         hostPath:
+            path: /etc/ssl/certs/ca-certificates.crt
+</code></pre><h4 id="rbac-for-autoscaler">RBAC for autoscaler</h4>
+<p>Create file <code>management/cluster-autoscaler-rbac.yaml</code>:</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+name: cluster-autoscaler
+namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+name: cluster-autoscaler
+rules:
+- apiGroups: [&#34;&#34;]
+   resources: [&#34;events&#34;, &#34;endpoints&#34;, &#34;pods&#34;, &#34;services&#34;, &#34;nodes&#34;, &#34;namespaces&#34;]
+   verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;]
+- apiGroups: [&#34;apps&#34;]
+   resources: [&#34;replicasets&#34;, &#34;statefulsets&#34;, &#34;daemonsets&#34;]
+   verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;]
+- apiGroups: [&#34;extensions&#34;]
+   resources: [&#34;replicasets&#34;, &#34;daemonsets&#34;]
+   verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;]
+- apiGroups: [&#34;policy&#34;]
+   resources: [&#34;poddisruptionbudgets&#34;]
+   verbs: [&#34;get&#34;, &#34;list&#34;]
+- apiGroups: [&#34;autoscaling.k8s.io&#34;]
+   resources: [&#34;*&#34;]
+   verbs: [&#34;*&#34;]
+- apiGroups: [&#34;cluster.x-k8s.io&#34;]
+   resources: [&#34;machinedeployments&#34;, &#34;machinesets&#34;, &#34;machines&#34;]
+   verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;patch&#34;]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+name: cluster-autoscaler
+roleRef:
+apiGroup: rbac.authorization.k8s.io
+kind: ClusterRole
+name: cluster-autoscaler
+subjects:
+- kind: ServiceAccount
+   name: cluster-autoscaler
+   namespace: kube-system
+</code></pre><h4 id="manifest-argo-cd-application-cluster-autoscaler">Manifest Argo CD Application Cluster Autoscaler</h4>
+<p>Create file <code>management/argocd-autoscaler-app.yaml</code>:</p>
+<pre tabindex="0"><code>apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-autoscaler
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Tungdever/multi-cluster-with-clusterapi
+    targetRevision: HEAD
+    path: management
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
+</code></pre><ul>
+<li>Commit file <code>cluster-autoscaler.yaml</code>, <code>cluster-autoscaler-rbac.yaml</code>, and <code>argocd-autoscaler-app.yaml</code></li>
+<li>Push on repo</li>
+<li>Apply Argo CD Application:
+<pre tabindex="0"><code>kubectl apply -f management/argocd-autoscaler-app.yaml
+</code></pre></li>
+</ul>
+<p><img src="/images/4.workload/011-workload.png" alt="workload">
+<img src="/images/4.workload/012-workload.png" alt="workload"></p>
+<h4 id="eks-cluster-autoscaling">EKS Cluster Autoscaling</h4>
+<ul>
+<li><strong>Use managed node groups</strong> with autoscaling parameters:</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
+kind: AWSManagedMachinePool
+metadata:
+  name: capi-eks-pool-0
+  namespace: default
+spec:
+  instanceType: t3.medium
+  scaling:
+    maxSize: 5
+    minSize: 1
+</code></pre><p><img src="/images/4.workload/013-workload.png" alt="workload">
+<img src="/images/4.workload/014-workload.png" alt="workload"></p>
+<ul>
+<li>Alternatively, deploy Cluster Autoscaler for EKS if you&rsquo;re using unmanaged node groups.</li>
+</ul>
 
 
 
@@ -994,6 +1231,38 @@ clusterctl describe cluster capa-workload-cluster
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1251,19 +1520,19 @@ clusterctl describe cluster capa-workload-cluster
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194117"></script>
-    <script src="/js/jquery.sticky.js?1754194117"></script>
-    <script src="/js/featherlight.min.js?1754194117"></script>
-    <script src="/js/highlight.pack.js?1754194117"></script>
+    <script src="/js/clipboard.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754751022"></script>
+    <script src="/js/jquery.sticky.js?1754751022"></script>
+    <script src="/js/featherlight.min.js?1754751022"></script>
+    <script src="/js/highlight.pack.js?1754751022"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194117"></script>
-    <script src="/js/learn.js?1754194117"></script>
-    <script src="/js/hugo-learn.js?1754194117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754751022"></script>
+    <script src="/js/learn.js?1754751022"></script>
+    <script src="/js/hugo-learn.js?1754751022"></script>
 
-    <link href="/mermaid/mermaid.css?1754194117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194117"></script>
+    <link href="/mermaid/mermaid.css?1754751022" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754751022"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

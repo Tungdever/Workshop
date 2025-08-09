@@ -171,6 +171,19 @@
                 href="//localhost:1313/vi/4-creclusters/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.5-kind/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.2-tools/2.2.5-kind/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.5-kind/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/5-networking/</loc>
     <lastmod>2025-07-29T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -182,6 +195,19 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/5-networking/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-prerequiste/2.2-tools/docker/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-prerequiste/2.2-tools/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-prerequiste/2.2-tools/docker/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/6-distribution/</loc>

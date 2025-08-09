@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Create Workload Clusters on Kubernetes Multi-Cluster Management with Cluster API</title>
+    <title>Create Workload Cluster on Kubernetes Multi-Cluster Management with Cluster API</title>
     <link>//localhost:1313/4-creclusters/</link>
-    <description>Recent content in Create Workload Clusters on Kubernetes Multi-Cluster Management with Cluster API</description>
+    <description>Recent content in Create Workload Cluster on Kubernetes Multi-Cluster Management with Cluster API</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>

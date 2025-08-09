@@ -8,32 +8,32 @@ pre = "<b>10. </b>"
 
 To avoid unnecessary costs, clean up all resources created during the workshop.
 
-1. **Delete Workload Clusters**:
-   ```
-   kubectl delete cluster workload-cluster-1
-   kubectl delete cluster workload-cluster-2
-   ```
+To make sure there’s no unwanted cloud cost, please clean up the environment. 
+- Delete the Argo CD applications: 
+```
+kubectl delete -f ./management/argocd-ec2-app.yaml 
+kubectl delete -f ./management/argocd-eks-app.yaml
+kubectl delete -f ./app/eks-app/eks-nginx-deploy.yaml
+```
 
-2. **Delete Management Cluster**:
-   ```
-   eksctl delete cluster --name management-cluster --region us-east-1
-   ```
+- Delete the created clusters: 
+```
+kubectl delete cluster capi-eks
+kubectl delete cluster capi-ec2
+```
 
-3. **Remove VPC Peering**:
-   ```
-   aws ec2 delete-vpc-peering-connection --vpc-peering-connection-id <peering-id> --region us-east-1
-   ```
+- Delete the created EC2 SSH key in each region:
+```
+aws ec2 delete-key-pair --key-name capi-eks --region ap-southeast-2
+aws ec2 delete-key-pair --key-name capi-ec2 --region us-east-1
+```
 
-4. **Delete SSH Key**:
-   ```
-   aws ec2 delete-key-pair --key-name workshop-key
-   rm workshop-key.pem
-   ```
+- Delete the CloudFormation Stack when running “clusterawsadm boostrap” command to create all necessary IAM resources
+```
+aws cloudformation delete-stack --stack-name cluster-api-provider-aws-sigs-k8s-io --region us-east-1
+```
 
-5. **Remove Backup Bucket**:
-   ```
-   aws s3 rb s3://workshop-backup --force
-   ```
-
-6. **Verify Cleanup**:
-   - Check AWS Console or CLI to ensure no resources (EKS clusters, EC2 instances, VPCs) remain.
+- Delete management cluster
+```
+kind delete cluster - 
+```

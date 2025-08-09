@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo Workload Clusters :: Kubernetes Multi-Cluster Management với Cluster API</title>
+    <title>Tạo Workload Cluster :: Kubernetes Multi-Cluster Management với Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194118" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194118" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194118" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194118" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194118" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194118" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194118" rel="stylesheet">
-    <link href="/css/theme.css?1754194118" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194118" rel="stylesheet">
+    <link href="/css/nucleus.css?1754751022" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754751022" rel="stylesheet">
+    <link href="/css/hybrid.css?1754751022" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754751022" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754751022" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754751022" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754751022" rel="stylesheet">
+    <link href="/css/theme.css?1754751022" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754751022" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194118" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754751022" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194118"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754751022"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194118"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194118"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754751022"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754751022"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194118"></script>
+<script type="text/javascript" src="/js/search.js?1754751022"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI cho Cluster API)" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI cho Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/vi/4-creclusters/" title="Tạo Workload Clusters" class="dd-item 
+    <li data-nav-id="/vi/4-creclusters/" title="Tạo Workload Cluster" class="dd-item 
         
         active
         
         ">
       <a href="/vi/4-creclusters/">
-           <b> 4. </b> Tạo Workload Clusters
+           <b> 4. </b> Tạo Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -718,7 +774,7 @@
             
           
           
-            <a href='/vi/'>Kubernetes Multi-Cluster Management với Cluster API</a> > Tạo Workload Clusters
+            <a href='/vi/'>Kubernetes Multi-Cluster Management với Cluster API</a> > Tạo Workload Cluster
           
         
           
@@ -729,7 +785,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tạo-manifest-cho-cụm-kubernetes">Tạo Manifest cho Cụm Kubernetes</a></li>
+    <li><a href="#cài-đặt-argo-cd-trên-cụm-quản-lý-kubernetes">Cài đặt Argo CD trên Cụm Quản lý Kubernetes</a>
+      <ul>
+        <li><a href="#tạo-cụm-workload">Tạo Cụm Workload</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -745,7 +810,7 @@
           
             <h1>
               
-              Tạo Workload Clusters
+              Tạo Workload Cluster
             </h1>
           
 
@@ -753,7 +818,116 @@
 
 
 
-	
+	<h2 id="tạo-manifest-cho-cụm-kubernetes">Tạo Manifest cho Cụm Kubernetes</h2>
+<ol>
+<li><strong>Tạo khóa SSH</strong>:</li>
+</ol>
+<pre tabindex="0"><code>aws ec2 create-key-pair --key-name capi-eks --region ap-southeast-2 --query &#39;KeyMaterial&#39; --output text &gt; capi-eks.pem
+aws ec2 create-key-pair --key-name capi-ec2 --region us-east-1 --query &#39;KeyMaterial&#39; --output text &gt; capi-ec2.pem
+</code></pre><ol start="2">
+<li><strong>Xác định các biến môi trường</strong>:</li>
+</ol>
+<pre tabindex="0"><code>export AWS_CONTROL_PLANE_MACHINE_TYPE=t3.medium
+export AWS_NODE_MACHINE_TYPE=t3.medium
+</code></pre><ol start="3">
+<li><strong>Tạo Manifest cho Cụm Kubernetes trên EC2</strong>:</li>
+</ol>
+<pre tabindex="0"><code>export AWS_SSH_KEY_NAME=capi-ec2
+export AWS_REGION=us-east-1 
+clusterctl generate cluster capi-ec2 --kubernetes-version v1.31.0 --control-plane-machine-count=3 --worker-machine-count=3 &gt; ./capi-cluster/aws-ec2/aws-ec2.yaml
+</code></pre><ol start="4">
+<li><strong>Tạo Manifest cho Cụm Kubernetes trên EKS</strong>:</li>
+</ol>
+<pre tabindex="0"><code>export AWS_SSH_KEY_NAME=capi-eks
+export AWS_REGION=ap-southeast-2
+clusterctl generate cluster capi-eks --flavor eks-managedmachinepool --kubernetes-version v1.31.0 --worker-machine-count=3 &gt; ./capi-cluster/aws-eks/capi-eks.yaml
+</code></pre><h2 id="cài-đặt-argo-cd-trên-cụm-quản-lý-kubernetes">Cài đặt Argo CD trên Cụm Quản lý Kubernetes</h2>
+<p><strong>Cài đặt Argo CD trong cụm quản lý Kind</strong>:</p>
+<pre tabindex="0"><code>kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+</code></pre><p><strong>Lấy mật khẩu đăng nhập lần đầu cho giao diện web Argo CD</strong>:</p>
+<pre tabindex="0"><code>kubectl get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo
+</code></pre><p><strong>Cấu hình xác thực Argo CD với Git</strong>:</p>
+<ul>
+<li>
+<p><strong>Đăng nhập vào cổng web của Argo CD</strong>:</p>
+<pre tabindex="0"><code>kubectl port-forward svc/argocd-server 8080:80
+</code></pre><ul>
+<li>Tên người dùng: admin</li>
+<li>Mật khẩu: <code>mật khẩu đăng nhập lần đầu</code><br>
+<img src="/images/4.workload/001-workload.png" alt="workload"></li>
+</ul>
+</li>
+<li>
+<p>Điều hướng đến Cài đặt &gt; Kho lưu trữ &gt; Kết nối kho lưu trữ:</p>
+<ul>
+<li>Chọn phương thức kết nối: HTTP/HTTPS</li>
+<li>Loại: Git</li>
+<li>URL kho lưu trữ: URL của kho lưu trữ đã fork</li>
+<li>Chọn <code>bỏ qua xác minh máy chủ</code><br>
+<img src="/images/4.workload/003-workload.png" alt="workload"><br>
+<img src="/images/4.workload/002-workload.png" alt="workload"></li>
+</ul>
+</li>
+<li>
+<p>Kết nối</p>
+</li>
+</ul>
+<h3 id="tạo-cụm-workload">Tạo Cụm Workload</h3>
+<p><strong>Để ủy quyền cho Argo CD quản lý các đối tượng Cluster API, tạo ClusterRoleBinding để cấp quyền cần thiết cho tài khoản dịch vụ <code>argocd-application-controller</code>, sử dụng vai trò <code>cluster-admin</code> cho đơn giản</strong>:</p>
+<pre tabindex="0"><code>kubectl apply -f ./management/argo-cluster-role-binding.yaml
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRoleBinding</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cluster-admin-argocd-contoller</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subjects</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">argocd-application-controller</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">roleRef</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cluster-admin</span>
+</span></span></code></pre></div><h4 id="tạo-cụm-workload-cho-kubernetes-chạy-trên-ec2">Tạo Cụm Workload cho Kubernetes chạy trên EC2:</h4>
+<p>Để tạo cụm EKS mới hoặc cụm Kubernetes chạy trên EC2, trước tiên định nghĩa một ứng dụng theo cách khai báo, đại diện cho tập hợp các manifest Kubernetes để triển khai cụm mới. Trong hướng dẫn này, tất cả cấu hình ứng dụng Argo CD được lưu trong thư mục “Management” của kho lưu trữ đã sao chép. Ví dụ, dưới đây là tệp manifest ứng dụng để tạo cụm Kubernetes chạy trên EC2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Application</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ec2-cluster</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">destination</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">namespace</span>: <span style="color:#e6db74">&#39;default&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>: <span style="color:#e6db74">&#39;https://kubernetes.default.svc&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">source</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">path</span>: <span style="color:#ae81ff">capi-cluster/aws-ec2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">repoURL</span>: <span style="color:#e6db74">&#39;[cập nhật URL kho lưu trữ Git tương ứng]&#39;</span> <span style="color:#75715e">#Chỉ định kho lưu trữ nguồn để lấy cấu hình cụm</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">targetRevision</span>: <span style="color:#ae81ff">HEAD</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">project</span>: <span style="color:#ae81ff">default</span> <span style="color:#75715e">#Có thể đặt tên dự án tại đây</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">syncPolicy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">automated</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">prune</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">allowEmpty</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Sau khi sửa đổi tệp YAML ứng dụng Argo CD như trên, commit và đẩy các thay đổi lên kho lưu trữ nguồn:</p>
+<pre tabindex="0"><code>git push .
+git add .
+git commit -m “cập nhật tệp manifest ứng dụng Argo CD” 
+</code></pre><p>Chạy lệnh sau để tạo một ứng dụng mới nhằm tạo cụm Kubernetes chạy trên EC2:</p>
+<pre tabindex="0"><code>kubectl apply -f ./management/argocd-ec2-app.yaml
+</code></pre><p>Sử dụng ứng dụng Argo CD để cung cấp cụm EKS. Đầu tiên, tạo một ứng dụng và cập nhật tệp YAML liên quan để đặt <code>repoURL</code> thành kho lưu trữ Git của bạn. Sau đó, commit và đẩy các thay đổi lên kho lưu trữ nguồn.</p>
+<pre tabindex="0"><code>kubectl apply -f ./management/argocd-eks-app.yaml
+</code></pre><p><strong>Kiểm tra trạng thái của các cụm</strong>:</p>
+<pre tabindex="0"><code>clusterctl describe cluster capi-eks
+clusterctl describe cluster capi-ec2
+</code></pre><p>Cụm EC2 hiển thị trạng thái READY của các node công việc là &ldquo;False&rdquo; do không có CNI, khiến các node không tham gia vào cụm. Để minh họa, triển khai Calico CNI vào cụm EC2, có thể tự động hóa bằng Argo CD.</p>
+<p><strong>Lấy tệp kubeconfig cho cụm mới tạo trên EC2</strong>:</p>
+<pre tabindex="0"><code>clusterctl get kubeconfig capi-ec2 &gt; capikubeconfig-ec2
+</code></pre><p><strong>Triển khai Calico CNI</strong>:</p>
+<pre tabindex="0"><code>kubectl --kubeconfig=./capikubeconfig-ec2 apply -f https://docs.projectcalico.org/v3.21/manifests/calico.yaml
+</code></pre><p>Calico CNI được triển khai thành công, kiểm tra lại trạng thái cụm.</p>
+<p>Khi tạo cụm EKS, hệ thống tự động tạo và lưu trữ các tệp kubeconfig dưới dạng bí mật (secret) trong cụm quản lý. Hành vi này khác với việc tạo cụm không được quản lý bằng nhà cung cấp AWS, nơi kubeconfig không được lưu trữ theo cách này. Bí mật chứa kubeconfig sẽ được đặt tên là <code>[tên-cụm]-user-kubeconfig</code>, trong đó thay <code>[tên-cụm]</code> bằng tên thực tế của cụm.</p>
+<p>Để lấy kubeconfig người dùng cho cụm có tên ‘capi-eks’, chạy lệnh sau:</p>
+<pre tabindex="0"><code>kubectl --namespace=default get secret capi-eks-user-kubeconfig -o jsonpath={.data.value} | base64 --decode &gt; capikubeconfig-eks
+</code></pre>
 
 
 
@@ -852,6 +1026,38 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1109,19 +1315,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194118"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194118"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194118"></script>
-    <script src="/js/jquery.sticky.js?1754194118"></script>
-    <script src="/js/featherlight.min.js?1754194118"></script>
-    <script src="/js/highlight.pack.js?1754194118"></script>
+    <script src="/js/clipboard.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754751022"></script>
+    <script src="/js/jquery.sticky.js?1754751022"></script>
+    <script src="/js/featherlight.min.js?1754751022"></script>
+    <script src="/js/highlight.pack.js?1754751022"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194118"></script>
-    <script src="/js/learn.js?1754194118"></script>
-    <script src="/js/hugo-learn.js?1754194118"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754751022"></script>
+    <script src="/js/learn.js?1754751022"></script>
+    <script src="/js/hugo-learn.js?1754751022"></script>
 
-    <link href="/mermaid/mermaid.css?1754194118" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194118"></script>
+    <link href="/mermaid/mermaid.css?1754751022" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754751022"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

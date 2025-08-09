@@ -12,21 +12,21 @@
     <title>Initialize Cluster API Management Cluster :: Kubernetes Multi-Cluster Management with Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194117" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194117" rel="stylesheet">
-    <link href="/css/theme.css?1754194117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194117" rel="stylesheet">
+    <link href="/css/nucleus.css?1754751022" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754751022" rel="stylesheet">
+    <link href="/css/hybrid.css?1754751022" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754751022" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754751022" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754751022" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754751022" rel="stylesheet">
+    <link href="/css/theme.css?1754751022" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754751022" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754751022" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754751022"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754751022"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754751022"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194117"></script>
+<script type="text/javascript" src="/js/search.js?1754751022"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI for Cluster API)" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI for Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/4-creclusters/" title="Create Workload Clusters" class="dd-item 
+    <li data-nav-id="/4-creclusters/" title="Create Workload Cluster" class="dd-item 
         
         
         
         ">
       <a href="/4-creclusters/">
-           <b> 4. </b> Create Workload Clusters
+           <b> 4. </b> Create Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -733,9 +789,10 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#1-deploy-management-cluster">1. Deploy Management Cluster</a></li>
-        <li><a href="#2-initialize-cluster-api">2. Initialize Cluster API</a></li>
-        <li><a href="#3-verify-initialization">3. Verify Initialization</a></li>
+        <li><a href="#1-fork-the-git-repo">1. Fork the git repo</a></li>
+        <li><a href="#2-initialize-the-management-cluster">2. Initialize the management cluster</a></li>
+        <li><a href="#3-predefine-all-necessary-environment-parameters">3. Predefine all necessary environment parameters</a></li>
+        <li><a href="#4-initialize-cluster-api-with-aws-provider">4. Initialize Cluster API with AWS provider</a></li>
       </ul>
     </li>
   </ul>
@@ -763,84 +820,25 @@
 
 
 
-	<h3 id="1-deploy-management-cluster">1. Deploy Management Cluster</h3>
-<p>Create AWS Identity and Access Management (IAM) roles for use with Kubernetes Cluster API Provider AWS.</p>
+	<h3 id="1-fork-the-git-repo">1. Fork the git repo</h3>
+<p>Fork the Git repository <code>https://github.com/aws-samples/eks-ec2-clusterapi-gitops</code> to your own Github account, clone to your local workstation, then change to the following directory</p>
+<pre tabindex="0"><code>cd ./eks-ec2-clusterapi-gitops
+</code></pre><h3 id="2-initialize-the-management-cluster">2. Initialize the management cluster</h3>
+<p>Create the kind cluster and verify the success of the creation:</p>
+<pre tabindex="0"><code>kind create cluster
+kubectl cluster-info --context kind-kind
+</code></pre><p>The Cluster API Provider for AWS includes clusterawsadm, a tool to manage IAM objects. It uses environment variables, encodes them into a Kubernetes Secret in a Kind cluster, and retrieves necessary permissions to create workload clusters.</p>
 <pre tabindex="0"><code>clusterawsadm bootstrap iam create-cloudformation-stack --region us-east-1
-</code></pre><p><img src="/images/2.prerequisite/041-prepare.png" alt="clusterawsadm">
-The management cluster is an EKS cluster hosting Cluster API components to manage workload clusters.</p>
-<ul>
-<li>
-<p>Create the management cluster with eksctl:</p>
-<pre tabindex="0"><code>eksctl create cluster --name management-cluster --region us-east-1 --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed 
-</code></pre></li>
-<li>
-<p>If you encounter a timeout error during cluster creation, try switching to public DNS:</p>
-<ul>
-<li>Open Control Panel → Network and Sharing Center → Change adapter settings.</li>
-<li>Right-click your active connection (Wi-Fi/Ethernet) → Properties.</li>
-<li>Select Internet Protocol Version 4 (TCP/IPv4) → Properties.
-Set:</li>
-<li>Preferred DNS: 8.8.8.8 (Google)</li>
-<li>Alternate DNS: 8.8.4.4 (Google) or 1.1.1.1 (Cloudflare)</li>
-</ul>
-</li>
-</ul>
-
-<div class="notices info" ><p>You may also try turning off Windows Firewall temporarily if DNS changes don’t resolve the issue.</p>
-</div>
-
-
-<div class="notices info" ><p>This command may take 10-15 minutes to complete.</p>
-</div>
-
-<p><strong>After successful creation</strong></p>
-<p><img src="/images/2.prerequisite/019-inicluster.png" alt="inicluster"></p>
-<p><strong>Verify witk EKS and CloudFormation</strong></p>
-<p><img src="/images/2.prerequisite/020-inicluster.png" alt="inicluster">
-<img src="/images/2.prerequisite/021-inicluster.png" alt="inicluster"></p>
-<p><strong>Configure kubectl</strong>:</p>
-<p>After cluster creation, configure <strong>kubectl</strong> to connect to your cluster:</p>
-<pre tabindex="0"><code>aws eks update-kubeconfig --name management-cluster --region us-east-1
-</code></pre><p><img src="/images/2.prerequisite/037-inicluster.png" alt="inicluster"></p>
-<p><strong>Verify Cluster</strong></p>
-<p>Test your cluster connection:</p>
-<pre tabindex="0"><code># Check cluster nodes
-kubectl get nodes
-
-# Check system pods
-kubectl get pods --all-namespaces
-
-# Get cluster information
-kubectl cluster-info
-</code></pre><h3 id="2-initialize-cluster-api">2. Initialize Cluster API</h3>
-<p>Cluster API is a Kubernetes project providing declarative APIs for cluster lifecycle management. Here, we initialize Cluster API with the AWS provider.</p>
-<ul>
-<li>
-<p><strong>Encode credentials for use with clusterctl init</strong></p>
-<pre tabindex="0"><code>$env:AWS_REGION = &#34;us-east-1&#34;
-$env:AWS_B64ENCODED_CREDENTIALS = clusterawsadm bootstrap credentials encode-as-profile
-</code></pre></li>
-<li>
-<p><strong>Initialize Cluster API with AWS provider</strong>:</p>
+</code></pre><h3 id="3-predefine-all-necessary-environment-parameters">3. Predefine all necessary environment parameters</h3>
+<pre tabindex="0"><code>export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-as-profile)
+export AWS_REGION=us-east-1
+export EKS=true
+export EXP_MACHINE_POOL=true
+export CAPA_EKS_IAM=true
+</code></pre><h3 id="4-initialize-cluster-api-with-aws-provider">4. Initialize Cluster API with AWS provider</h3>
+<p>To install the Cluster API components for AWS, the kubeadm boostrap provider, and the kubeadm control-plane provider, and transform the Kind cluster into a management cluster, we use the clusterctl init command.</p>
 <pre tabindex="0"><code>clusterctl init --infrastructure aws
-</code></pre></li>
-</ul>
-<p><img src="/images/2.prerequisite/038-inicluster.png" alt="inicluster"></p>
-<h3 id="3-verify-initialization">3. Verify Initialization</h3>
-<ul>
-<li><strong>Check pods in <code>capi-system</code> and <code>capa-system</code> namespace</strong>:</li>
-</ul>
-<pre tabindex="0"><code># Check core Cluster API components
-kubectl get pods -n capi-system
-
-# Check AWS provider components
-kubectl get pods -n capa-system
-
-# Verify CRDs are installed
-kubectl get crd | findstr cluster-api
-</code></pre><p><img src="/images/2.prerequisite/040-inicluster.png" alt="inicluster">
-<img src="/images/2.prerequisite/039-inicluster.png" alt="inicluster"></p>
-
+</code></pre>
 
 
 
@@ -939,6 +937,38 @@ kubectl get crd | findstr cluster-api
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1186,7 +1216,7 @@ kubectl get crd | findstr cluster-api
 			<a class="nav nav-prev" href="/2-prerequiste/2.4-cres3/" title="Create S3 Bucket"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/4-creclusters/" title="Create Workload Clusters" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/4-creclusters/" title="Create Workload Cluster" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1196,19 +1226,19 @@ kubectl get crd | findstr cluster-api
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194117"></script>
-    <script src="/js/jquery.sticky.js?1754194117"></script>
-    <script src="/js/featherlight.min.js?1754194117"></script>
-    <script src="/js/highlight.pack.js?1754194117"></script>
+    <script src="/js/clipboard.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754751022"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754751022"></script>
+    <script src="/js/jquery.sticky.js?1754751022"></script>
+    <script src="/js/featherlight.min.js?1754751022"></script>
+    <script src="/js/highlight.pack.js?1754751022"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194117"></script>
-    <script src="/js/learn.js?1754194117"></script>
-    <script src="/js/hugo-learn.js?1754194117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754751022"></script>
+    <script src="/js/learn.js?1754751022"></script>
+    <script src="/js/hugo-learn.js?1754751022"></script>
 
-    <link href="/mermaid/mermaid.css?1754194117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194117"></script>
+    <link href="/mermaid/mermaid.css?1754751022" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754751022"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

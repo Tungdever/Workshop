@@ -12,21 +12,21 @@
     <title>Eksctl (CLI for Amazon EKS) :: Kubernetes Multi-Cluster Management with Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194117" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194117" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194117" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194117" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194117" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194117" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194117" rel="stylesheet">
-    <link href="/css/theme.css?1754194117" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194117" rel="stylesheet">
+    <link href="/css/nucleus.css?1754719926" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754719926" rel="stylesheet">
+    <link href="/css/hybrid.css?1754719926" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754719926" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754719926" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754719926" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754719926" rel="stylesheet">
+    <link href="/css/theme.css?1754719926" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754719926" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194117" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754719926" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194117"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754719926"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194117"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194117"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754719926"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754719926"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194117"></script>
+<script type="text/javascript" src="/js/search.js?1754719926"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI for Cluster API)" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI for Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/4-creclusters/" title="Create Workload Clusters" class="dd-item 
+    <li data-nav-id="/4-creclusters/" title="Create Workload Cluster" class="dd-item 
         
         
         
         ">
       <a href="/4-creclusters/">
-           <b> 4. </b> Create Workload Clusters
+           <b> 4. </b> Create Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -772,38 +828,16 @@
 
 	<p>eksctl is a command-line tool for creating and managing Kubernetes clusters on Amazon EKS. It simplifies cluster management tasks using the AWS API.</p>
 <h2 id="install">Install</h2>
-<ol>
-<li>
-<p><strong>Download the Binary</strong></p>
 <ul>
-<li>Go to <a href="https://github.com/weaveworks/eksctl/releases">eksctl Releases</a>.</li>
-<li>Download the latest version for Windows (<code>eksctl_Windows_amd64.zip</code> for 64-bit).</li>
-<li>Extract the ZIP file to obtain <strong>eksctl.exe</strong>.</li>
+<li><strong>Run the following commands:</strong></li>
 </ul>
-</li>
-<li>
-<p><strong>Move to a PATH Directory</strong></p>
-<ul>
-<li>Move <strong>eksctl.exe</strong> to a directory included in your system&rsquo;s PATH, such as <code>C:\Program Files\eksctl</code>.</li>
-<li>Create the directory if it does not exist.</li>
-</ul>
-</li>
-<li>
-<p><strong>Add to PATH Environment Variable</strong></p>
-<ul>
-<li>Open <strong>Edit the system environment variables</strong> on Windows.</li>
-<li>In <strong>System Variables</strong>, find and edit the <strong>Path</strong> variable.</li>
-<li>Add the directory containing <strong>eksctl.exe</strong> (<code>C:\Program Files\eksctl</code>).</li>
-<li>Save changes.</li>
-</ul>
-</li>
-</ol>
-<p><img src="/images/2.prerequisite/012-eksctl.png" alt="eksctl"></p>
-<h2 id="verify-installation">Verify installation</h2>
+<pre tabindex="0"><code>curl --silent --location &#34;https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&#34; | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin/
+sudo chmod +x /usr/local/bin/eksctl
+</code></pre><h2 id="verify-installation">Verify installation</h2>
 <p>Run the following command in Command Prompt or PowerShell:</p>
 <pre tabindex="0"><code>eksctl version
-</code></pre><p><img src="/images/2.prerequisite/013-eksctl.png" alt="eksctl"></p>
-
+</code></pre>
 
 
 
@@ -951,6 +985,38 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1167,19 +1233,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194117"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194117"></script>
-    <script src="/js/jquery.sticky.js?1754194117"></script>
-    <script src="/js/featherlight.min.js?1754194117"></script>
-    <script src="/js/highlight.pack.js?1754194117"></script>
+    <script src="/js/clipboard.min.js?1754719926"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754719926"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754719926"></script>
+    <script src="/js/jquery.sticky.js?1754719926"></script>
+    <script src="/js/featherlight.min.js?1754719926"></script>
+    <script src="/js/highlight.pack.js?1754719926"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194117"></script>
-    <script src="/js/learn.js?1754194117"></script>
-    <script src="/js/hugo-learn.js?1754194117"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754719926"></script>
+    <script src="/js/learn.js?1754719926"></script>
+    <script src="/js/hugo-learn.js?1754719926"></script>
 
-    <link href="/mermaid/mermaid.css?1754194117" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194117"></script>
+    <link href="/mermaid/mermaid.css?1754719926" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754719926"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

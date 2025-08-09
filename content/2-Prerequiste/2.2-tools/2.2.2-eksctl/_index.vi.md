@@ -10,27 +10,15 @@ eksctl là một công cụ dòng lệnh dùng để tạo và quản lý các c
 
 ## Cài đặt
 
-1. **Tải xuống file nhị phân**  
-   - Truy cập [trang phát hành eksctl](https://github.com/weaveworks/eksctl/releases).  
-   - Tải phiên bản mới nhất cho Windows (`eksctl_Windows_amd64.zip` cho 64-bit).  
-   - Giải nén file ZIP để lấy file **eksctl.exe**.
-
-2. **Di chuyển đến thư mục PATH**  
-   - Di chuyển file **eksctl.exe** đến một thư mục có trong biến PATH của hệ thống như `C:\Program Files\eksctl`.  
-   - Nếu cần, tạo thư mục mới này.
-
-3. **Thêm vào biến môi trường PATH**  
-   - Mở **Edit the system environment variables** trên Windows.  
-   - Trong **System Variables**, tìm và chỉnh sửa biến **Path**.  
-   - Thêm đường dẫn đến thư mục chứa **eksctl.exe** (`C:\Program Files\eksctl`).  
-   - Lưu thay đổi.
-
-![eksctl](/images/2.prerequisite/012-eksctl.png)
+- **Chạy đoạn lệnh dưới đây:**
+```
+curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin/
+sudo chmod +x /usr/local/bin/eksctl
+```
 
 ## Kiểm tra cài đặt 
    Chạy lệnh sau trong Command Prompt hoặc PowerShell:  
    ```
    eksctl version
    ```
-
-![eksctl](/images/2.prerequisite/013-eksctl.png)

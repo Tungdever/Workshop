@@ -12,21 +12,21 @@
     <title>Khởi tạo Cluster API quản lý cluster :: Kubernetes Multi-Cluster Management với Cluster API</title>
 
     
-    <link href="/css/nucleus.css?1754194118" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1754194118" rel="stylesheet">
-    <link href="/css/hybrid.css?1754194118" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1754194118" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1754194118" rel="stylesheet">
-    <link href="/css/auto-complete.css?1754194118" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1754194118" rel="stylesheet">
-    <link href="/css/theme.css?1754194118" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1754194118" rel="stylesheet">
+    <link href="/css/nucleus.css?1754719926" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1754719926" rel="stylesheet">
+    <link href="/css/hybrid.css?1754719926" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1754719926" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1754719926" rel="stylesheet">
+    <link href="/css/auto-complete.css?1754719926" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1754719926" rel="stylesheet">
+    <link href="/css/theme.css?1754719926" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1754719926" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1754194118" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1754719926" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1754194118"></script>
+    <script src="/js/jquery-3.3.1.min.js?1754719926"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1754194118"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1754194118"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1754719926"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1754719926"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1754194118"></script>
+<script type="text/javascript" src="/js/search.js?1754719926"></script>
 
     
   </div>
@@ -282,13 +282,69 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterctl (CLI cho Cluster API)" class="dd-item 
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/" title="Clusterawsadm" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/">
-           <b> 2.2.4 </b> Clusterctl (CLI cho Cluster API)
+           <b> 2.2.4 </b> Clusterawsadm
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/2.2.5-kind/" title="Kind" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-tools/2.2.5-kind/">
+           <b> 2.2.5 </b> Kind
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-tools/docker/" title="Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-tools/docker/">
+           <b> 2.2.6 </b> Docker
           
             <i class="fas fa-check read-icon"></i>
           
@@ -408,13 +464,13 @@
  
   
     
-    <li data-nav-id="/vi/4-creclusters/" title="Tạo Workload Clusters" class="dd-item 
+    <li data-nav-id="/vi/4-creclusters/" title="Tạo Workload Cluster" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-creclusters/">
-           <b> 4. </b> Tạo Workload Clusters
+           <b> 4. </b> Tạo Workload Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -733,9 +789,10 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#1-triển-khai-cụm-quản-lý">1. Triển khai Cụm Quản lý</a></li>
-        <li><a href="#2-khởi-tạo-cluster-api">2. Khởi tạo Cluster API</a></li>
-        <li><a href="#3-kiểm-tra-khởi-tạo">3. Kiểm tra Khởi tạo</a></li>
+        <li><a href="#1-fork-kho-lưu-trữ-git">1. Fork kho lưu trữ Git</a></li>
+        <li><a href="#2-khởi-tạo-cụm-quản-lý">2. Khởi tạo cụm quản lý</a></li>
+        <li><a href="#3-xác-định-trước-các-tham-số-môi-trường-cần-thiết">3. Xác định trước các tham số môi trường cần thiết</a></li>
+        <li><a href="#4-khởi-tạo-cluster-api-với-nhà-cung-cấp-aws">4. Khởi tạo Cluster API với nhà cung cấp AWS</a></li>
       </ul>
     </li>
   </ul>
@@ -763,69 +820,25 @@
 
 
 
-	<h3 id="1-triển-khai-cụm-quản-lý">1. Triển khai Cụm Quản lý</h3>
-<p>Cụm quản lý là một cụm EKS chứa các thành phần Cluster API để quản lý các cụm workload.</p>
-<ul>
-<li>
-<p>Thiết lập môi trường cho PowerShell:</p>
-<pre tabindex="0"><code>$Env:AWS_ACCESS_KEY_ID = &#34;&lt;access-key&gt;&#34;
-$Env:AWS_SECRET_ACCESS_KEY = &#34;&lt;secret-key&gt;&#34;
-$credentials = &#34;[default]`naws_access_key_id = $Env:AWS_ACCESS_KEY_ID`naws_secret_access_key = $Env:AWS_SECRET_ACCESS_KEY`n&#34;
-$Env:AWS_B64ENCODED_CREDENTIALS = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($credentials))
-$Env:AWS_REGION = &#34;us-east-1&#34;
-$Env:CLUSTER_API_STATE_BUCKET = &#34;capi-workshop-state&#34;
-</code></pre></li>
-<li>
-<p>Tạo cụm quản lý với eksctl:</p>
-<pre tabindex="0"><code>eksctl create cluster --name management-cluster --region us-east-1 --version 1.33 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed 
-</code></pre></li>
-</ul>
-<p>Nếu gặp lỗi timeout trong quá trình tạo cụm, thử chuyển sang DNS công cộng:</p>
-<ul>
-<li>Mở <strong>Control Panel</strong> → <strong>Network and Sharing Center</strong> → <strong>Change adapter settings</strong>.</li>
-<li>Nhấp chuột phải vào kết nối đang hoạt động (Wi-Fi/Ethernet) → <strong>Properties</strong>.</li>
-<li>Chọn <strong>Internet Protocol Version 4 (TCP/IPv4)</strong> → <strong>Properties</strong>.
-Thiết lập:</li>
-<li>Preferred DNS: <code>8.8.8.8</code> (Google)</li>
-<li>Alternate DNS: <code>8.8.4.4</code> (Google) hoặc <code>1.1.1.1</code> (Cloudflare)</li>
-</ul>
-
-<div class="notices info" ><p>Bạn cũng có thể thử tắt tạm thời <strong>Windows Firewall</strong> nếu thay đổi DNS không khắc phục được vấn đề.</p>
-</div>
-
-
-<div class="notices info" ><p>Lệnh này có thể mất 10-15 phút để hoàn thành.</p>
-</div>
-
-<p><strong>Sau khi tạo thành công</strong></p>
-<p><img src="/images/2.prerequisite/018-inicluster.png" alt="inicluster">
-<img src="/images/2.prerequisite/019-inicluster.png" alt="inicluster"></p>
-<p><strong>Kiểm tra với EKS và CloudFormation</strong></p>
-<p><img src="/images/2.prerequisite/020-inicluster.png" alt="inicluster">
-<img src="/images/2.prerequisite/021-inicluster.png" alt="inicluster"></p>
-<p><strong>Cập nhật ngữ cảnh kubectl</strong>:
-Sau khi cụm được tạo, cập nhật tệp kubeconfig để cho phép <strong>kubectl</strong> tương tác với cụm:</p>
-<pre tabindex="0"><code>aws eks update-kubeconfig --name management-cluster --region us-east-1
-</code></pre><p><img src="/images/2.prerequisite/037-inicluster.png" alt="inicluster"></p>
-<h3 id="2-khởi-tạo-cluster-api">2. Khởi tạo Cluster API</h3>
-<p>Cluster API là một dự án Kubernetes cung cấp các API khai báo để quản lý vòng đời cụm. Ở đây, chúng ta khởi tạo Cluster API với nhà cung cấp AWS.</p>
-<ul>
-<li><strong>Khởi tạo Cluster API với nhà cung cấp AWS</strong>:
+	<h3 id="1-fork-kho-lưu-trữ-git">1. Fork kho lưu trữ Git</h3>
+<p>Fork kho Git <code>https://github.com/aws-samples/eks-ec2-clusterapi-gitops</code> vào tài khoản Github của bạn, sao chép (clone) về máy trạm cục bộ, sau đó chuyển đến thư mục sau:</p>
+<pre tabindex="0"><code>cd ./eks-ec2-clusterapi-gitops
+</code></pre><h3 id="2-khởi-tạo-cụm-quản-lý">2. Khởi tạo cụm quản lý</h3>
+<p>Tạo cụm Kind và xác minh việc tạo thành công:</p>
+<pre tabindex="0"><code>kind create cluster
+kubectl cluster-info --context kind-kind
+</code></pre><p>Cluster API Provider for AWS bao gồm <code>clusterawsadm</code>, một công cụ để quản lý các đối tượng IAM. Công cụ này sử dụng các biến môi trường, mã hóa chúng vào một Kubernetes Secret trong cụm Kind, và lấy các quyền cần thiết để tạo các cụm workload.</p>
+<pre tabindex="0"><code>clusterawsadm bootstrap iam create-cloudformation-stack --region us-east-1
+</code></pre><h3 id="3-xác-định-trước-các-tham-số-môi-trường-cần-thiết">3. Xác định trước các tham số môi trường cần thiết</h3>
+<pre tabindex="0"><code>export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-as-profile)
+export AWS_REGION=us-east-1
+export EKS=true
+export EXP_MACHINE_POOL=true
+export CAPA_EKS_IAM=true
+</code></pre><h3 id="4-khởi-tạo-cluster-api-với-nhà-cung-cấp-aws">4. Khởi tạo Cluster API với nhà cung cấp AWS</h3>
+<p>Để cài đặt các thành phần Cluster API cho AWS, nhà cung cấp bootstrap kubeadm, và nhà cung cấp control-plane kubeadm, đồng thời biến cụm Kind thành cụm quản lý, sử dụng lệnh <code>clusterctl init</code>:</p>
 <pre tabindex="0"><code>clusterctl init --infrastructure aws
-</code></pre></li>
-</ul>
-<p><img src="/images/2.prerequisite/038-inicluster.png" alt="inicluster"></p>
-<h3 id="3-kiểm-tra-khởi-tạo">3. Kiểm tra Khởi tạo</h3>
-<p>Kiểm tra xem các thành phần Cluster API và nhà cung cấp AWS đã được triển khai đúng chưa.</p>
-<ul>
-<li><strong>Kiểm tra pods trong namespace <code>capi-system</code></strong>:</li>
-<li><strong>Kiểm tra pods trong namespace <code>capi-system</code> and <code>capa-system</code></strong>:</li>
-</ul>
-<pre tabindex="0"><code>kubectl get pods -n capi-system
-</code></pre><p><img src="/images/2.prerequisite/040-inicluster.png" alt="inicluster"></p>
-<pre tabindex="0"><code>kubectl get pods -n capa-system
-</code></pre><p><img src="/images/2.prerequisite/039-inicluster.png" alt="inicluster"></p>
-
+</code></pre>
 
 
 
@@ -924,6 +937,38 @@ Sau khi cụm được tạo, cập nhật tệp kubeconfig để cho phép <str
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1171,7 +1216,7 @@ Sau khi cụm được tạo, cập nhật tệp kubeconfig để cho phép <str
 			<a class="nav nav-prev" href="/vi/2-prerequiste/2.4-cres3/" title="Tạo S3 Bucket"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/4-creclusters/" title="Tạo Workload Clusters" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/4-creclusters/" title="Tạo Workload Cluster" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1181,19 +1226,19 @@ Sau khi cụm được tạo, cập nhật tệp kubeconfig để cho phép <str
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1754194118"></script>
-    <script src="/js/perfect-scrollbar.min.js?1754194118"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1754194118"></script>
-    <script src="/js/jquery.sticky.js?1754194118"></script>
-    <script src="/js/featherlight.min.js?1754194118"></script>
-    <script src="/js/highlight.pack.js?1754194118"></script>
+    <script src="/js/clipboard.min.js?1754719926"></script>
+    <script src="/js/perfect-scrollbar.min.js?1754719926"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1754719926"></script>
+    <script src="/js/jquery.sticky.js?1754719926"></script>
+    <script src="/js/featherlight.min.js?1754719926"></script>
+    <script src="/js/highlight.pack.js?1754719926"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1754194118"></script>
-    <script src="/js/learn.js?1754194118"></script>
-    <script src="/js/hugo-learn.js?1754194118"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1754719926"></script>
+    <script src="/js/learn.js?1754719926"></script>
+    <script src="/js/hugo-learn.js?1754719926"></script>
 
-    <link href="/mermaid/mermaid.css?1754194118" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1754194118"></script>
+    <link href="/mermaid/mermaid.css?1754719926" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1754719926"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
