@@ -106,19 +106,6 @@
                 href="//localhost:1313/2-prerequiste/2.2-tools/2.2.3-clusterctl/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-prerequiste/2.3-creec2keypair/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.3-creec2keypair/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.3-creec2keypair/"
-                />
-  </url><url>
     <loc>//localhost:1313/3-iniclusters/</loc>
     <lastmod>2025-07-29T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -145,19 +132,6 @@
                 href="//localhost:1313/2-prerequiste/2.2-tools/2.2.4.clusterawsadm/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-prerequiste/2.4-cres3/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.4-cres3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.4-cres3/"
-                />
-  </url><url>
     <loc>//localhost:1313/4-creclusters/</loc>
     <lastmod>2025-07-29T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -169,6 +143,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/4-creclusters/"
+                />
+  </url><url>
+    <loc>//localhost:1313/5-upgrade_scaling/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-upgrade_scaling/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-upgrade_scaling/"
                 />
   </url><url>
     <loc>//localhost:1313/2-prerequiste/2.2-tools/2.2.5-kind/</loc>
@@ -184,95 +171,30 @@
                 href="//localhost:1313/2-prerequiste/2.2-tools/2.2.5-kind/"
                 />
   </url><url>
-    <loc>//localhost:1313/5-networking/</loc>
+    <loc>//localhost:1313/2-prerequiste/2.2-tools/2.2.6-docker/</loc>
     <lastmod>2025-07-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/5-networking/"
+                href="//localhost:1313/vi/2-prerequiste/2.2-tools/2.2.6-docker/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/5-networking/"
+                href="//localhost:1313/2-prerequiste/2.2-tools/2.2.6-docker/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-prerequiste/2.2-tools/docker/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/2-prerequiste/2.2-tools/docker/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/2-prerequiste/2.2-tools/docker/"
-                />
-  </url><url>
-    <loc>//localhost:1313/6-distribution/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/6-distribution/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/6-distribution/"
-                />
-  </url><url>
-    <loc>//localhost:1313/7-security/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/7-security/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/7-security/"
-                />
-  </url><url>
-    <loc>//localhost:1313/8-cost/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/8-cost/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/8-cost/"
-                />
-  </url><url>
-    <loc>//localhost:1313/9-procedures/</loc>
-    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/9-procedures/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/9-procedures/"
-                />
-  </url><url>
-    <loc>//localhost:1313/10-cleanup/</loc>
+    <loc>//localhost:1313/6-cleanup/</loc>
     <lastmod>1970-01-01T07:33:42+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/10-cleanup/"
+                href="//localhost:1313/vi/6-cleanup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/10-cleanup/"
+                href="//localhost:1313/6-cleanup/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>

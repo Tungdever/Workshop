@@ -11,6 +11,8 @@ pre : " <b> 2.2 </b> "
   - [Clusterctl (CLI cho Cluster API)](2.2.3-clusterctl//)
 
 ### Tài liệu bổ sung
+- [**AWS IAM**](https://docs.aws.amazon.com/iam/)
+- [**AWS CLI Configuration**](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 - [**eksctl**](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
 - [**clusterctl**](https://cluster-api.sigs.k8s.io/user/quick-start.html#install-clusterctl)

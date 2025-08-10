@@ -70,7 +70,3 @@ Test the configuration by running:
 aws sts get-caller-identity
 ```  
 ![CLI](/images/2.prerequisite/009-awscli.png)
-
-### Additional Resources
-- AWS IAM Documentation: https://docs.aws.amazon.com/iam/
-- AWS CLI Configuration Guide: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html

@@ -8,17 +8,17 @@ pre: "<b>1. </b>"
 
 #### Overview
 
-This workshop guides participants through implementing multi-cluster Kubernetes management using **Cluster API** on AWS. Cluster API is a Kubernetes project that provides declarative APIs for cluster lifecycle management, enabling automation of cluster provisioning, upgrades, and scaling across multiple clusters.
+This workshop provides a hands-on guide to managing multiple Kubernetes clusters on AWS using **Cluster API**, enhanced with GitOps deployment via **Argo CD**. **Cluster API** offers declarative APIs for automating cluster lifecycle operations, including **provisioning, upgrades, scaling, deletion**.
+
+Argo CD integration ensures consistent and auditable application delivery across clusters, aligning with GitOps best practices.
 
 #### Objective
-- Automate Kubernetes cluster lifecycle (creation, scaling, upgrades, and deletion).
-- Set up cross-cluster networking for seamless communication.
-- Distribute workloads across clusters for high availability and scalability.
-- Implement governance and security policies to ensure compliance and secure operations.
-- Apply cost management strategies to optimize AWS resource usage.
-- Define operational procedures for multi-cluster management.
+- Automate Kubernetes cluster lifecycle: provisioning, scaling, upgrades, and decommissioning.
+- Manage multiple EKS clusters on AWS using Cluster API.
+- Enable GitOps-based deployment across clusters with Argo CD.
+- Focus on production-grade, scalable multi-cluster architecture.
 
-The workshop uses AWS EKS (Elastic Kubernetes Service) with Cluster API to manage multiple clusters, focusing on practical, hands-on implementation. By the end, participants will have a functional multi-cluster setup with automated lifecycle management, secure networking, and cost-optimized operations.
+By the end of this workshop, participants will have a robust multi-cluster management setup with automated operations and Git-driven deployment workflows.
 
 
 

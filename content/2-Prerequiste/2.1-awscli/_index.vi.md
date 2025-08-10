@@ -71,7 +71,3 @@ Kiểm tra cấu hình bằng cách chạy:
 aws sts get-caller-identity
 ```
 ![CLI](/images/2.prerequisite/009-awscli.png)
-
-### Tài liệu bổ sung
-- Tài liệu AWS IAM: https://docs.aws.amazon.com/iam/
-- Hướng dẫn cấu hình AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html  

@@ -24,10 +24,6 @@ The workshop uses AWS EKS (Elastic Kubernetes Service) with Cluster API to manag
  2. [Preparation](2-prerequiste/)
  3. [Initialize Cluster API Management Cluster](3-iniclusters/)
  4. [Create Workload Clusters](4-creclusters/)
- 5. [Set Up Cross-Cluster Networking](5-networking/)
- 6. [Workload Distribution](6-distribution/)
- 7. [Implement Governance and Security](7-security/) 
- 8. [Cost Management](8-cost/)
- 9. [Operational Procedures](9-procedures/)
- 10. [Clean up resources](10-cleanup/)
+ 5. [Automation Upgrade and Auto-scaling](5-upgrade_scaling/)
+ 6. [Clean up resources](6-cleanup/)
 
